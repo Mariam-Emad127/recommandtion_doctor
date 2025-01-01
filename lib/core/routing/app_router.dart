@@ -7,6 +7,7 @@ import '../../feature/login/ui/login_screen.dart';
 
 class AppRouter {
   Route? onGenerateRoute(RouteSettings settings) {
+    final argumemt=settings.arguments;
     switch (settings.name) {
       case Routes.loginScreen:
         return MaterialPageRoute(
