@@ -9,7 +9,9 @@ class DoctorImageAndText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        SvgPicture.asset("assets/images/onboarding_doctor.png"),
+        //assets\svgs\Docdoc.svg
+       // assets\svgs\Docdoc.svg
+        SvgPicture.asset("assets/svgs/Docdoc.svg"),
 Container(
   foregroundDecoration: BoxDecoration(
     

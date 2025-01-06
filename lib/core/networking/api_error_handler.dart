@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:recommandtion_doctor/core/networking/api_constant.dart';
 
  import 'api_error_model.dart';
 
@@ -42,7 +43,7 @@ class ResponseCode {
   static const int DEFAULT = -7;
 }
 
-/*
+
 class ResponseMessage {
   static const String NO_CONTENT =
       ApiErrors.noContent; // success with no data (no content)
@@ -171,7 +172,7 @@ ApiErrorModel _handleError(DioException error) {
   }
 
 }
-*/
+
 class ApiInternalStatus {
   static const int SUCCESS = 0;
   static const int FAILURE = 1;
