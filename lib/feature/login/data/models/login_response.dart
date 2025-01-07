@@ -19,9 +19,10 @@ factory LoginResponse.fromJson(Map<String,dynamic>json )=>_$LoginResponseFromJso
 class LoginUserData{
  String? token;
   @JsonKey(name: 'username')
-  String? userName; 
+  String? userName;
 LoginUserData(this.token,this.userName);
 factory LoginUserData.fromJson(Map<String,dynamic>json )=>_$LoginUserDataFromJson(json);
 
 
 }
+
