@@ -16,5 +16,5 @@ return Navigator.of(this)
     .pushNamedAndRemoveUntil(routeName, predicate, arguments: arguments);
 }
 
-void pop() => Navigator.of(this).pop();
+void pop( ) => Navigator.of(this).pop();
 }

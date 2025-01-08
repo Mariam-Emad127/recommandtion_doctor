@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:recommandtion_doctor/feature/login/controller/cubit/login_cubit.dart';
 
-import ' password_validations.dart';
-import '../../../../core/helper/app_regex.dart';
+ import '../../../../core/helper/app_regex.dart';
 import '../../../../core/helper/spacing.dart';
 import '../../../../core/widgets/app_text_form_field.dart';
 
@@ -17,31 +16,14 @@ class EmailAndPassword extends StatefulWidget {
 class _EmailAndPasswordState extends State<EmailAndPassword> {
   bool isObscureText = true;
 
-  bool hasLowercase = false;
-  bool hasUppercase = false;
-  bool hasSpecialCharacters = false;
-  bool hasNumber = false;
-  bool hasMinLength = false;
-//GlobalKey globalKey=GlobalKey();
- late TextEditingController passwordController;
+
+ late TextEditingController password ;
 
   @override
   void initState() {
     super.initState();
-passwordController=context.read<LoginCubit>().password ;
-//setupPasswordControllerListener();
-  }
-  void setupPasswordControllerListener() {
-    passwordController.addListener(() {
-      setState(() {
-        hasLowercase = AppRegex.hasLowerCase(passwordController.text);
-        hasUppercase = AppRegex.hasUpperCase(passwordController.text);
-        hasSpecialCharacters =
-            AppRegex.hasSpecialCharacter(passwordController.text);
-        hasNumber = AppRegex.hasNumber(passwordController.text);
-        hasMinLength = AppRegex.hasMinLength(passwordController.text);
-      });
-    });
+password =context.read<LoginCubit>().password ;
+
   }
 
   @override
@@ -51,19 +33,22 @@ passwordController=context.read<LoginCubit>().password ;
       child: Column(
         children: [
           AppTextFormField(
-            hintText: 'Email',       validator: (value) {
+            hintText: 'Email',
+          controller: context.read<LoginCubit>().email,
+
+          validator: (value) {
             if (value == null || value.isEmpty) {
               return 'Please enter a valid password';
             }
-            controller: context.read<LoginCubit>().email;
 
           },
 
           ),
           verticalSpace(18),
           AppTextFormField(
-           controller: context.read<LoginCubit>().password,
             hintText: 'Password',
+            controller: context.read<LoginCubit>().password,
+
             isObscureText: isObscureText,
             suffixIcon: GestureDetector(
               onTap: () {
@@ -82,13 +67,7 @@ passwordController=context.read<LoginCubit>().password ;
             },
           ),
           verticalSpace(24),
-          // PasswordValidations(
-          //   hasLowerCase: hasLowercase,
-          //   hasUpperCase: hasUppercase,
-          //   hasSpecialCharacters: hasSpecialCharacters,
-          //   hasNumber: hasNumber,
-          //   hasMinLength: hasMinLength,
-          // ),
+
         ],
       ),
     );
@@ -96,7 +75,7 @@ passwordController=context.read<LoginCubit>().password ;
 
   @override
   void dispose() {
-    passwordController.dispose();
+    password.dispose();
     super.dispose();
   }
 }

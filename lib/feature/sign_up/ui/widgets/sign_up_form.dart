@@ -4,8 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/helper/app_regex.dart';
 import '../../../../core/helper/spacing.dart';
 import '../../../../core/widgets/app_text_form_field.dart';
-import '../../../login/ui/widgets/ password_validations.dart';
-import '../../logic/sign_up_cubit.dart';
+ import '../../logic/sign_up_cubit.dart';
 
 class SignupForm extends StatefulWidget {
   const SignupForm({super.key});
@@ -33,18 +32,6 @@ class _SignupFormState extends State<SignupForm> {
   //  setupPasswordControllerListener();
   }
 
-  void setupPasswordControllerListener() {
-    passwordController.addListener(() {
-      setState(() {
-        hasLowercase = AppRegex.hasLowerCase(passwordController.text);
-        hasUppercase = AppRegex.hasUpperCase(passwordController.text);
-        hasSpecialCharacters =
-            AppRegex.hasSpecialCharacter(passwordController.text);
-        hasNumber = AppRegex.hasNumber(passwordController.text);
-        hasMinLength = AppRegex.hasMinLength(passwordController.text);
-      });
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -79,8 +66,7 @@ class _SignupFormState extends State<SignupForm> {
             hintText: 'Email',
             validator: (value) {
               if (value == null ||
-                  value.isEmpty ||
-                  !AppRegex.isEmailValid(value)) {
+                  value.isEmpty  ){
                 return 'Please enter a valid email';
               }
             },
