@@ -11,7 +11,9 @@ class DoctorsBlueContainer extends StatelessWidget {
 child: Stack(
   children: [
 
-    Container(child: Image.asset( ""),)
+    Container(child: Image.asset( "assets/images/home_blue_pattern.png"),),
+    
+    Text( "Book and\nschedule with\nnearest doctor")
 
   ],
 
