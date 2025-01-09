@@ -5,6 +5,7 @@ part 'specializations_response_model.g.dart';
 class SpecializationsResponseModel {
 @JsonKey(name:"data")
 List<Specialization?>?specialization;
+
 SpecializationsResponseModel(this.specialization);
 factory SpecializationsResponseModel.fromJson(Map<String,dynamic>json )=>_$SpecializationsResponseModelFromJson(json);
 

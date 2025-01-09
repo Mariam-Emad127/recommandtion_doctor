@@ -8,9 +8,9 @@ class HomeState with _$HomeState {
   // Specializations
   const factory HomeState.specializationsLoading() = SpecializationsLoading;
   const factory HomeState.specializationsSuccess(SpecializationsResponseModel specializationsresponsemodel ) = SpecializationsSuccess;
-  const factory HomeState.specializationsError(String message) = SpecializationsError;
+  const factory HomeState.specializationsError(ErrorHandler errorHandler) = SpecializationsError;
 
   // Doctors
   const factory HomeState.doctorsSuccess(List<Doctors?>? doctorsList) = DoctorsSuccess;
-  const factory HomeState.doctorsError(String message) =  DoctorsError;
+  const factory HomeState.doctorsError(ErrorHandler errorHandler) =  DoctorsError;
 }

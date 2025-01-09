@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:recommandtion_doctor/core/di/dependency_injection.dart';
 import 'package:recommandtion_doctor/core/routing/routes.dart';
+import 'package:recommandtion_doctor/feature/home/controller/cubit/home_cubit.dart';
 import 'package:recommandtion_doctor/feature/home/ui/home_screen.dart';
 import 'package:recommandtion_doctor/feature/login/controller/cubit/login_cubit.dart';
 import 'package:recommandtion_doctor/feature/onboarding/ui/onboarding_screen.dart';
@@ -26,7 +27,11 @@ class AppRouter {
     builder: (_) =>OnboardingScreen());
        case Routes.homeScreen:
         return MaterialPageRoute(
-            builder: (_) =>HomeScreen());
+            builder: (_) =>BlocProvider<HomeCubit>(
+              create: (context) => HomeCubit(getIt())..getSpecializations(),
+              child: HomeScreen(),
+            )
+            );
       case Routes.signUpScreen:
         return MaterialPageRoute(builder:  (_)=>BlocProvider<SignupCubit>(
             create: (BuildContext context) =>getIt<SignupCubit>(),

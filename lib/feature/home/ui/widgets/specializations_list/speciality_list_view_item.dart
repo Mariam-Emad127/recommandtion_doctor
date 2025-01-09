@@ -2,23 +2,22 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:recommandtion_doctor/feature/home/data/models/specializations_response_model.dart';
 
 import '../../../../../core/ theming/colors.dart';
 import '../../../../../core/helper/spacing.dart';
 
 class SpecialityListViewItem extends StatelessWidget {
-  const SpecialityListViewItem({super.key});
+    final Specialization ? specializationsData;
+  final int itemIndex;
+  const SpecialityListViewItem({super.key,required this.specializationsData, required this.itemIndex});
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      scrollDirection: Axis.horizontal,
-        itemCount: 4,
-        itemBuilder:  (context,index){
-
+ 
       return Padding(
         padding: EdgeInsetsDirectional.only(
-            start: index == 0 ? 0 : 24.w),
+            start: itemIndex == 0 ? 0 : 24.w),
         child: Column(
           children: [
             //index == selectedIndex
@@ -61,6 +60,6 @@ class SpecialityListViewItem extends StatelessWidget {
         ),
       );
 
-    });
+    
   }
 }
