@@ -1,14 +1,20 @@
 import 'package:flutter/cupertino.dart';
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 =======
+=======
+>>>>>>> Stashed changes
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/ theming/styles.dart';
 import '../../../../core/helper/spacing.dart';
 
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 class DoctorsBlueContainer extends StatelessWidget {
   const DoctorsBlueContainer({super.key});
@@ -17,6 +23,7 @@ class DoctorsBlueContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       height: 195.h,
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 child: Stack(
   children: [
@@ -32,6 +39,8 @@ child: Stack(
 
 
 =======
+=======
+>>>>>>> Stashed changes
       child: Stack(
         alignment: Alignment.bottomCenter,
         children: [
@@ -84,6 +93,9 @@ child: Stack(
         
         ],
       ),
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
     );
   }
