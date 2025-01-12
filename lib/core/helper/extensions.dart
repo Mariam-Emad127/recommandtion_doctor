@@ -18,3 +18,9 @@ return Navigator.of(this)
 
 void pop( ) => Navigator.of(this).pop();
 }
+
+
+extension StringExtension on String?{
+bool isEmptyOrNull ()=> this==null||this=="";
+
+}

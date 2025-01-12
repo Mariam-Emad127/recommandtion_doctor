@@ -19,11 +19,15 @@ class DocApp extends StatelessWidget {
           title: 'ScreenUtil Example',
           theme: ThemeData(primarySwatch: Colors.blue),
           //home: HomeScreen(),
-          initialRoute: Routes.homeScreen,//onBoardingScreen,
+          initialRoute: Routes.onBoardingScreen,
           onGenerateRoute: appRouter.onGenerateRoute,
         );
       },
     );
 
   }
+
+
+
+
 }
