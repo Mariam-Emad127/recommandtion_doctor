@@ -5,7 +5,7 @@ import 'package:recommandtion_doctor/feature/home/ui/widgets/doctors_list/doctor
 
 class DoctorsListView extends StatelessWidget {
   final List<Doctors?>? doctorsList;
-  const DoctorsListView({super.key,required this.doctorsList});
+    DoctorsListView({super.key,required this.doctorsList});
 
   @override
   Widget build(BuildContext context) {
@@ -13,9 +13,10 @@ class DoctorsListView extends StatelessWidget {
       child: ListView.builder(
         itemCount: doctorsList?.length,
         itemBuilder: (context, index) {
-          return DoctorsListViewItem(
-            doctorsModel: doctorsList?[index],
-          );
+          return
+           DoctorsListViewItem(
+             doctorsModel: doctorsList?[index],
+           );
         },
       ),
     );

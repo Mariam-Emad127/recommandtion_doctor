@@ -2,8 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:pretty_dio_logger/src/pretty_dio_logger.dart';
 import 'package:recommandtion_doctor/core/helper/constans.dart';
 import 'package:recommandtion_doctor/core/helper/shared_pref_helper.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-
+ 
 class DioFactory{
 
 
