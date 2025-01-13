@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:recommandtion_doctor/core/helper/extensions.dart';
 import 'package:recommandtion_doctor/core/networking/api_error_handler.dart';
-import 'package:recommandtion_doctor/core/networking/api_result.dart';
 import 'package:recommandtion_doctor/feature/home/data/models/specializations_response_model.dart';
 import 'package:recommandtion_doctor/feature/home/data/repos/home_repo.dart';
 
@@ -12,25 +12,46 @@ class HomeCubit extends Cubit<HomeState> {
 HomeRepo homeRepo;
 
   HomeCubit(this.homeRepo) : super(HomeState.initial());
-List<Specialization>specializationDataList=[];
+List<Specialization?>?specializationDataList=[];
+
 void getSpecializations ()async{
  emit(HomeState.specializationsLoading());
  final response=await homeRepo.home ();
 
 response.when(
   success:(specializationsResponseModel){
- emit(HomeState.specializationsSuccess(specializationsResponseModel));
+    specializationDataList=specializationsResponseModel.specialization;
+          getDoctorsList(specializationId:specializationDataList?.first?.id);
+ //specializationDataList?.first?.id
+ emit(HomeState.specializationsSuccess(specializationsResponseModel.specialization));
 },
 
 failure: (errorHandler) {
   emit(HomeState.specializationsError(errorHandler   ));
-  //.apiErrorModel.message??""
-},
+ },
+);}
 
+void getDoctorsList({required int? specializationId}){
+List<Doctors?>doctorsList=getDoctorsListBySpecializationId(specializationId);
+if(!doctorsList.isEmptyOrNull()){
+emit(HomeState.doctorsSuccess(doctorsList));
+}else{
+  emit(HomeState.doctorsError(ErrorHandler.handle( "No Doctors Found")));
+}
 
-);
 
 }
+ //getDoctorsListBySpecializationId(specializationId){
+ //return specializationDataList?.firstWhere((Specialization)=>
+// Specialization?.id==specializationId )?.doctors ;// orElse: () => null;
+//}
+
+  /// returns the list of doctors based on the specialization id
+  getDoctorsListBySpecializationId(specializationId) {
+    return specializationDataList
+        ?.firstWhere((specialization) => specialization?.id == specializationId)
+        ?.doctors;
+  }
 
 
 }

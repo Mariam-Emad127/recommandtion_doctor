@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:recommandtion_doctor/feature/login/controller/cubit/login_cubit.dart';
-
- import '../../../../core/helper/app_regex.dart';
 import '../../../../core/helper/spacing.dart';
 import '../../../../core/widgets/app_text_form_field.dart';
 
@@ -15,9 +13,7 @@ class EmailAndPassword extends StatefulWidget {
 
 class _EmailAndPasswordState extends State<EmailAndPassword> {
   bool isObscureText = true;
-
-
- late TextEditingController password ;
+  late TextEditingController password ;
 
   @override
   void initState() {

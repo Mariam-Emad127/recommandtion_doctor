@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:recommandtion_doctor/core/%20theming/colors.dart';
 import 'package:recommandtion_doctor/core/%20theming/styles.dart';
 import 'package:recommandtion_doctor/core/helper/spacing.dart';
 import 'package:recommandtion_doctor/feature/home/data/models/specializations_response_model.dart';
