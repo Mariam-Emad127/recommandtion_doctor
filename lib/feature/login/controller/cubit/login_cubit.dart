@@ -2,6 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:recommandtion_doctor/core/helper/constans.dart';
 import 'package:recommandtion_doctor/core/helper/shared_pref_helper.dart';
+import 'package:recommandtion_doctor/core/networking/api_error_model.dart';
 import 'package:recommandtion_doctor/core/networking/dio_factory.dart';
 import 'package:recommandtion_doctor/feature/login/controller/cubit/login_state.dart';
 import 'package:recommandtion_doctor/feature/login/data/models/login_request_body.dart';
@@ -29,8 +30,8 @@ TextEditingController password=TextEditingController();
 userTokentoken(loginResponse.loginUserData?.token??"");
 
        emit(LoginState.loginSuccess(loginResponse));
-    }, failure: (error) {
-      emit(LoginState.loginError(error: error.apiErrorModel.message ?? ''));
+    }, failure: (apiErrorModel) {
+      emit(LoginState.loginError(apiErrorModel ));
     });
   }
 Future <void>userTokentoken(String token)async{

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:recommandtion_doctor/core/%20theming/colors.dart';
  import 'package:recommandtion_doctor/core/helper/extensions.dart';
+import 'package:recommandtion_doctor/core/networking/api_error_model.dart';
  import 'package:recommandtion_doctor/core/routing/routes.dart';
 import 'package:recommandtion_doctor/feature/login/controller/cubit/login_cubit.dart';
 import 'package:recommandtion_doctor/feature/login/controller/cubit/login_state.dart';
@@ -44,11 +45,11 @@ class LoginBlocListener extends StatelessWidget {
           //   //CircularProgressIndicator();
           //   //print(error);
           // },
-          loginError: (error) {
+          loginError: (apiErrorModel) {
             Navigator.pop(context);
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
-                content: Text(error),
+                content: Text(apiErrorModel.getAllerrors()),
                 backgroundColor: Colors.red,
                 duration: const Duration(seconds: 3),
               ),

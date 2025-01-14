@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:recommandtion_doctor/core/helper/extensions.dart';
+import 'package:recommandtion_doctor/core/networking/api_error_model.dart';
 
 
 import '../../../../core/ theming/colors.dart';
@@ -36,8 +37,8 @@ class SignupBlocListener extends StatelessWidget {
             context.pop();
             showSuccessDialog(context);
           },
-          signupError: (error) {
-            setupErrorState(context, error);
+          signupError: (apiErrorModel) {
+            setupErrorState(context, apiErrorModel.getAllerrors());
           },
         );
       },
