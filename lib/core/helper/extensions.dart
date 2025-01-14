@@ -29,3 +29,8 @@ extension ListExtension<T> on List<T>?{
 bool isEmptyOrNull ()=> this==null||this!.isEmpty;
 
 }
+
+extension MapExtension<K,V> on Map<K,V>?{
+bool isEmptyOrNull ()=> this==null||this!.isEmpty;
+
+}

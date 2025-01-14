@@ -2,6 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:recommandtion_doctor/core/helper/extensions.dart';
 import 'package:recommandtion_doctor/core/networking/api_error_handler.dart';
+import 'package:recommandtion_doctor/core/networking/api_error_model.dart';
 import 'package:recommandtion_doctor/feature/home/data/models/specializations_response_model.dart';
 import 'package:recommandtion_doctor/feature/home/data/repos/home_repo.dart';
 
@@ -26,8 +27,8 @@ response.when(
  emit(HomeState.specializationsSuccess(specializationsResponseModel.specialization));
 },
 
-failure: (errorHandler) {
-  emit(HomeState.specializationsError(errorHandler   ));
+failure: (apiErrorModel) {
+  emit(HomeState.specializationsError(apiErrorModel   ));
  },
 );}
 
@@ -36,7 +37,7 @@ List<Doctors?>doctorsList=getDoctorsListBySpecializationId(specializationId);
 if(!doctorsList.isEmptyOrNull()){
 emit(HomeState.doctorsSuccess(doctorsList));
 }else{
-  emit(HomeState.doctorsError(ErrorHandler.handle( "No Doctors Found")));
+  emit(HomeState.doctorsError(ApiErrorModelHandler.handle( "No Doctors Found")));
 }
 
 

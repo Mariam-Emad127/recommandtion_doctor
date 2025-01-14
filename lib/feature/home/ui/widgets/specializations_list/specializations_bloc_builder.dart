@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:recommandtion_doctor/core/helper/spacing.dart';
 import 'package:recommandtion_doctor/feature/home/controller/cubit/home_cubit.dart';
+import 'package:recommandtion_doctor/feature/home/ui/widgets/doctors_list/doctors_shimmer_loading.dart';
 import 'package:recommandtion_doctor/feature/home/ui/widgets/specializations_list/speciality_list_view.dart';
+import 'package:recommandtion_doctor/feature/home/ui/widgets/specializations_list/speciality_shimmer_loading.dart';
 
 class SpecializationsBlocBuilder extends StatelessWidget {
   const SpecializationsBlocBuilder({super.key});
@@ -14,7 +17,15 @@ BlocBuilder<HomeCubit,HomeState>(
   current is SpecializationsLoading||current is SpecializationsSuccess,
   builder:  (context,state){
 return state.maybeWhen(
-  specializationsLoading: () => CircularProgressIndicator(),
+  specializationsLoading: () =>  Expanded(
+      child: Column(
+        children: [
+          const SpecialityShimmerLoading(),
+          verticalSpace(8),
+          const DoctorsShimmerLoading(),
+        ],
+      ),
+    ),
   
   specializationsSuccess: (specializationDataList) {
     var specializationList= specializationDataList;

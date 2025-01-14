@@ -14,7 +14,7 @@ class HomeRepo{
  return ApiResult.success(response);
 
   }catch(e){
-     return ApiResult.failure(ErrorHandler.handle(e));
+     return ApiResult.failure(ApiErrorModelHandler.handle(e));
 
     }
     }

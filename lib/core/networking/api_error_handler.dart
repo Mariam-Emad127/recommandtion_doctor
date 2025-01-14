@@ -43,7 +43,6 @@ class ResponseCode {
   static const int DEFAULT = -7;
 }
 
-
 class ResponseMessage {
   static const String NO_CONTENT =
       ApiErrors.noContent; // success with no data (no content)
@@ -67,14 +66,13 @@ class ResponseMessage {
   static String NO_INTERNET_CONNECTION = ApiErrors.noInternetError;
   static String DEFAULT = ApiErrors.defaultError;
 }
- 
 
 extension DataSourceExtension on DataSource {
   ApiErrorModel getFailure() {
     switch (this) {
       case DataSource.NO_CONTENT:
         return ApiErrorModel(
-            code: ResponseCode.NO_CONTENT, message: ResponseMessage.NO_CONTENT);
+            code: ResponseCode.NO_CONTENT, message: ResponseMessage.NO_CONTENT,   );
       case DataSource.BAD_REQUEST:
         return ApiErrorModel(
             code: ResponseCode.BAD_REQUEST,
@@ -120,25 +118,17 @@ extension DataSourceExtension on DataSource {
         return ApiErrorModel(
             code: ResponseCode.DEFAULT, message: ResponseMessage.DEFAULT);
     }
+ 
+ 
   }
 }
 
-class ErrorHandler implements Exception {
-  late ApiErrorModel apiErrorModel;
+class ApiErrorModelHandler implements Exception {
+  //late ApiErrorModel apiErrorModel;
 
-  ErrorHandler.handle(dynamic error) {
-    if (error is DioException) {
-      // dio error so its an error from response of the API or from dio itself
-      apiErrorModel = _handleError(error);
-    } else {
-      // default error
-      apiErrorModel = DataSource.DEFAULT.getFailure();
-    }
-  }
-}
-
-ApiErrorModel _handleError(DioException error) {
-  switch (error.type) {
+  static ApiErrorModel handle(dynamic error) {
+    if(error is DioException){
+   switch (error.type) {
     case DioExceptionType.connectionTimeout:
       return DataSource.CONNECT_TIMEOUT.getFailure();
     case DioExceptionType.sendTimeout:
@@ -167,13 +157,19 @@ ApiErrorModel _handleError(DioException error) {
       return DataSource.DEFAULT.getFailure();
     case DioExceptionType.badCertificate:
       return DataSource.DEFAULT.getFailure();
-   // case DioExceptionType.badResponse:
-     // return DataSource.DEFAULT.getFailure();
+    case DioExceptionType.badResponse:
+      return DataSource.DEFAULT.getFailure();
   }
-
+}
+    else {
+      // default error
+     return ApiErrorModel(message:  "UnKnown Error", );
+    }
+  }
 }
 
-class ApiInternalStatus {
-  static const int SUCCESS = 0;
-  static const int FAILURE = 1;
+ApiErrorModel _handleError(dynamic data) {
+ return ApiErrorModel(message: data["message"]??"", code: data["code"] ,errors:data["error"]);
 }
+
+ 
