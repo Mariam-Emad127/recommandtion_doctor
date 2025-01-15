@@ -33,9 +33,8 @@ return SizedBox(
   height: 90,
   child: SpecialityListView(  specializationDataList: specializationList  ??[] ));
 
-
-
-  },specializationsError: (ErrorHandler){
+  },
+  specializationsError: (ErrorHandler){
     return SizedBox.shrink();
   },
   orElse:(){ return   SizedBox.shrink();});

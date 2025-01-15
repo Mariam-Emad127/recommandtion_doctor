@@ -17,4 +17,19 @@ class LoginRepo {
       return ApiResult.failure(ApiErrorModelHandler.handle( errror));
     }
   }
+
+/*
+
+  Future<ApiResult<LoginUserData>> getUserNameInfo( ) async {
+    try {
+      final response = await _apiService.UserNameInfo( );
+      return ApiResult.success(response);
+    } catch (errror) {
+      return ApiResult.failure(ApiErrorModelHandler.handle( errror));
+    }
+  }
+
+*/
+
+
 }
