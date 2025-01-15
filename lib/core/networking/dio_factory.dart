@@ -30,7 +30,7 @@ return dio!;
       };
       }
 
-
+ 
 //   عشان يحفظ التوكين وهو  بيعمل  " لوجين"  ويرجعة تانى لمما ييجى يعمل جيت  
 static void setTokenIntoHeaderAfterLogin(String token){
 
@@ -41,8 +41,7 @@ static void setTokenIntoHeaderAfterLogin(String token){
         };
 }
 
-
-
+ 
 static void addDioInterceptor(){
  dio?.interceptors.add(PrettyDioLogger(
         requestHeader: true,

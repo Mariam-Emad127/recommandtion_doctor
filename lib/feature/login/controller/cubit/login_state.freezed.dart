@@ -20,7 +20,7 @@ mixin _$LoginState<T> {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loginLoading,
-    required TResult Function(T data) loginSuccess,
+    required TResult Function(String name) loginSuccess,
     required TResult Function(ApiErrorModel apiErrorModel) loginError,
   }) =>
       throw _privateConstructorUsedError;
@@ -28,7 +28,7 @@ mixin _$LoginState<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loginLoading,
-    TResult? Function(T data)? loginSuccess,
+    TResult? Function(String name)? loginSuccess,
     TResult? Function(ApiErrorModel apiErrorModel)? loginError,
   }) =>
       throw _privateConstructorUsedError;
@@ -36,7 +36,7 @@ mixin _$LoginState<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loginLoading,
-    TResult Function(T data)? loginSuccess,
+    TResult Function(String name)? loginSuccess,
     TResult Function(ApiErrorModel apiErrorModel)? loginError,
     required TResult orElse(),
   }) =>
@@ -132,7 +132,7 @@ class _$InitialImpl<T> implements _Initial<T> {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loginLoading,
-    required TResult Function(T data) loginSuccess,
+    required TResult Function(String name) loginSuccess,
     required TResult Function(ApiErrorModel apiErrorModel) loginError,
   }) {
     return initial();
@@ -143,7 +143,7 @@ class _$InitialImpl<T> implements _Initial<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loginLoading,
-    TResult? Function(T data)? loginSuccess,
+    TResult? Function(String name)? loginSuccess,
     TResult? Function(ApiErrorModel apiErrorModel)? loginError,
   }) {
     return initial?.call();
@@ -154,7 +154,7 @@ class _$InitialImpl<T> implements _Initial<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loginLoading,
-    TResult Function(T data)? loginSuccess,
+    TResult Function(String name)? loginSuccess,
     TResult Function(ApiErrorModel apiErrorModel)? loginError,
     required TResult orElse(),
   }) {
@@ -249,7 +249,7 @@ class _$LoginLoadingImpl<T> implements LoginLoading<T> {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loginLoading,
-    required TResult Function(T data) loginSuccess,
+    required TResult Function(String name) loginSuccess,
     required TResult Function(ApiErrorModel apiErrorModel) loginError,
   }) {
     return loginLoading();
@@ -260,7 +260,7 @@ class _$LoginLoadingImpl<T> implements LoginLoading<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loginLoading,
-    TResult? Function(T data)? loginSuccess,
+    TResult? Function(String name)? loginSuccess,
     TResult? Function(ApiErrorModel apiErrorModel)? loginError,
   }) {
     return loginLoading?.call();
@@ -271,7 +271,7 @@ class _$LoginLoadingImpl<T> implements LoginLoading<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loginLoading,
-    TResult Function(T data)? loginSuccess,
+    TResult Function(String name)? loginSuccess,
     TResult Function(ApiErrorModel apiErrorModel)? loginError,
     required TResult orElse(),
   }) {
@@ -329,7 +329,7 @@ abstract class _$$LoginSuccessImplCopyWith<T, $Res> {
           $Res Function(_$LoginSuccessImpl<T>) then) =
       __$$LoginSuccessImplCopyWithImpl<T, $Res>;
   @useResult
-  $Res call({T data});
+  $Res call({String name});
 }
 
 /// @nodoc
@@ -345,13 +345,13 @@ class __$$LoginSuccessImplCopyWithImpl<T, $Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? data = freezed,
+    Object? name = null,
   }) {
     return _then(_$LoginSuccessImpl<T>(
-      freezed == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as T,
+      null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -359,14 +359,14 @@ class __$$LoginSuccessImplCopyWithImpl<T, $Res>
 /// @nodoc
 
 class _$LoginSuccessImpl<T> implements LoginSuccess<T> {
-  const _$LoginSuccessImpl(this.data);
+  const _$LoginSuccessImpl(this.name);
 
   @override
-  final T data;
+  final String name;
 
   @override
   String toString() {
-    return 'LoginState<$T>.loginSuccess(data: $data)';
+    return 'LoginState<$T>.loginSuccess(name: $name)';
   }
 
   @override
@@ -374,12 +374,11 @@ class _$LoginSuccessImpl<T> implements LoginSuccess<T> {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$LoginSuccessImpl<T> &&
-            const DeepCollectionEquality().equals(other.data, data));
+            (identical(other.name, name) || other.name == name));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
+  int get hashCode => Object.hash(runtimeType, name);
 
   /// Create a copy of LoginState
   /// with the given fields replaced by the non-null parameter values.
@@ -395,10 +394,10 @@ class _$LoginSuccessImpl<T> implements LoginSuccess<T> {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loginLoading,
-    required TResult Function(T data) loginSuccess,
+    required TResult Function(String name) loginSuccess,
     required TResult Function(ApiErrorModel apiErrorModel) loginError,
   }) {
-    return loginSuccess(data);
+    return loginSuccess(name);
   }
 
   @override
@@ -406,10 +405,10 @@ class _$LoginSuccessImpl<T> implements LoginSuccess<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loginLoading,
-    TResult? Function(T data)? loginSuccess,
+    TResult? Function(String name)? loginSuccess,
     TResult? Function(ApiErrorModel apiErrorModel)? loginError,
   }) {
-    return loginSuccess?.call(data);
+    return loginSuccess?.call(name);
   }
 
   @override
@@ -417,12 +416,12 @@ class _$LoginSuccessImpl<T> implements LoginSuccess<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loginLoading,
-    TResult Function(T data)? loginSuccess,
+    TResult Function(String name)? loginSuccess,
     TResult Function(ApiErrorModel apiErrorModel)? loginError,
     required TResult orElse(),
   }) {
     if (loginSuccess != null) {
-      return loginSuccess(data);
+      return loginSuccess(name);
     }
     return orElse();
   }
@@ -466,9 +465,9 @@ class _$LoginSuccessImpl<T> implements LoginSuccess<T> {
 }
 
 abstract class LoginSuccess<T> implements LoginState<T> {
-  const factory LoginSuccess(final T data) = _$LoginSuccessImpl<T>;
+  const factory LoginSuccess(final String name) = _$LoginSuccessImpl<T>;
 
-  T get data;
+  String get name;
 
   /// Create a copy of LoginState
   /// with the given fields replaced by the non-null parameter values.
@@ -548,7 +547,7 @@ class _$LoginErrorImpl<T> implements LoginError<T> {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loginLoading,
-    required TResult Function(T data) loginSuccess,
+    required TResult Function(String name) loginSuccess,
     required TResult Function(ApiErrorModel apiErrorModel) loginError,
   }) {
     return loginError(apiErrorModel);
@@ -559,7 +558,7 @@ class _$LoginErrorImpl<T> implements LoginError<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loginLoading,
-    TResult? Function(T data)? loginSuccess,
+    TResult? Function(String name)? loginSuccess,
     TResult? Function(ApiErrorModel apiErrorModel)? loginError,
   }) {
     return loginError?.call(apiErrorModel);
@@ -570,7 +569,7 @@ class _$LoginErrorImpl<T> implements LoginError<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loginLoading,
-    TResult Function(T data)? loginSuccess,
+    TResult Function(String name)? loginSuccess,
     TResult Function(ApiErrorModel apiErrorModel)? loginError,
     required TResult orElse(),
   }) {

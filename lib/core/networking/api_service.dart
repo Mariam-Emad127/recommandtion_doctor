@@ -17,5 +17,8 @@ Future<LoginResponse>login(@Body() LoginRequestBody  loginRequestBody);
 
  @POST( ApiConstants.signup)
  Future<SignupResponse>signup(@Body() SignupRequestBody  signupRequestBody);
-
+/*
+@GET(ApiConstants.login)
+Future<LoginUserData>getUserNameInfo();
+*/
 }

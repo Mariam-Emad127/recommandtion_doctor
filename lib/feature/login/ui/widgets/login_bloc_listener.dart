@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:recommandtion_doctor/core/%20theming/colors.dart';
  import 'package:recommandtion_doctor/core/helper/extensions.dart';
-import 'package:recommandtion_doctor/core/networking/api_error_model.dart';
- import 'package:recommandtion_doctor/core/routing/routes.dart';
+  import 'package:recommandtion_doctor/core/routing/routes.dart';
 import 'package:recommandtion_doctor/feature/login/controller/cubit/login_cubit.dart';
 import 'package:recommandtion_doctor/feature/login/controller/cubit/login_state.dart';
 import '../../../../core/ theming/styles.dart';
@@ -20,6 +19,7 @@ class LoginBlocListener extends StatelessWidget {
           current is  LoginError,
       listener: (BuildContext context, state) {
         state.whenOrNull(
+         
           loginLoading: () {
             showDialog(
               context: context,
@@ -30,9 +30,10 @@ class LoginBlocListener extends StatelessWidget {
               ),
             );
           },
-          loginSuccess: (loginResponse) {
-            // context.pop(contex);
-            // context.pushNamed(context,Routes.homeScreen);
+         
+          loginSuccess: (username) {
+            print( "dddddddddddddddd$username");
+  //  loginResponse 
             Navigator.pop(context);
             Navigator.pushNamed(
               context,
@@ -40,11 +41,7 @@ class LoginBlocListener extends StatelessWidget {
             );
 
           },
-          // loginError: (error) {
-          //   setupErrorState(context, error);
-          //   //CircularProgressIndicator();
-          //   //print(error);
-          // },
+    
           loginError: (apiErrorModel) {
             Navigator.pop(context);
             ScaffoldMessenger.of(context).showSnackBar(

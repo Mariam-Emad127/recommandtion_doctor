@@ -22,6 +22,21 @@ class LoginUserData{
 LoginUserData(this.token,this.userName);
 factory LoginUserData.fromJson(Map<String,dynamic>json )=>_$LoginUserDataFromJson(json);
 
+/*
+ String getAllerrors(){
+if(errors.isEmptyOrNull())return message?? "unKnown";
+ 
+
+  final errormessage=errors?.entries.map( (e){
+   final value=  e.value;
+return "${value.join(',')}";
+
+  }).join("\n");
+
+return errormessage??"";
+
+}
+*/
 
 }
 

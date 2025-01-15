@@ -5,14 +5,15 @@ import 'package:recommandtion_doctor/core/networking/api_error_handler.dart';
 import 'package:recommandtion_doctor/core/networking/api_error_model.dart';
 import 'package:recommandtion_doctor/feature/home/data/models/specializations_response_model.dart';
 import 'package:recommandtion_doctor/feature/home/data/repos/home_repo.dart';
+import 'package:recommandtion_doctor/feature/login/data/models/login_response.dart';
 
 part 'home_state.dart';
 part 'home_cubit.freezed.dart';
 
 class HomeCubit extends Cubit<HomeState> {
 HomeRepo homeRepo;
-
-  HomeCubit(this.homeRepo) : super(HomeState.initial());
+//final LoginResponse? loginResponse;
+  HomeCubit(this.homeRepo ) : super(HomeState.initial());
 List<Specialization?>?specializationDataList=[];
 
 void getSpecializations ()async{
@@ -42,17 +43,26 @@ emit(HomeState.doctorsSuccess(doctorsList));
 
 
 }
- //getDoctorsListBySpecializationId(specializationId){
- //return specializationDataList?.firstWhere((Specialization)=>
-// Specialization?.id==specializationId )?.doctors ;// orElse: () => null;
-//}
-
-  /// returns the list of doctors based on the specialization id
   getDoctorsListBySpecializationId(specializationId) {
     return specializationDataList
         ?.firstWhere((specialization) => specialization?.id == specializationId)
         ?.doctors;
   }
+
+/*
+void getUserName()async{
+  final response=await homeRepo.getUserNameInfo();
+ response.when(
+      success: (loginResponse) {
+        print("222222 $loginResponse");
+        emit(HomeState.dataSuccess (loginResponse ));
+      },
+      failure: (errorHandler) {
+        emit(HomeState.dataError(errorHandler));
+      },
+    );
+}
+*/
 
 
 }
