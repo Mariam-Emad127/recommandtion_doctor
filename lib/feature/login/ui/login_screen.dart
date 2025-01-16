@@ -17,31 +17,35 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-          child: Column(
-        children: [
-          Text(
-            'Welcome Back',
-            style: TextStyles.font24BlueBold,
-          ),
-          verticalSpace(8),
-          Text(
-            'We\'re excited to have you back, can\'t wait to see what you\'ve been up to since you last logged in.',
-            style: TextStyles.font14GrayRegular,
-          ),
-          EmailAndPassword(),
-          AppTextButton(
-            buttonText: "Login",
-            textStyle: TextStyles.font16WhiteSemiBold,
-            onPressed: () {
-              validateThenDoLogin(context);
-            },
-          ),
-          verticalSpace(16),
-          const TermsAndConditionsText(),
-          const DontHaveAccountText(),
-          LoginBlocListener()
-        ],
-      )),
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+                    children: [
+                      SizedBox(height: 20,),
+            Text(
+              'Welcome Back',
+              style: TextStyles.font24BlueBold,
+            ),
+            verticalSpace(8),
+            Text(
+              'We\'re excited to have you back, can\'t wait to see what you\'ve been up to since you last logged in.',
+              style: TextStyles.font14GrayRegular,
+            ),
+            EmailAndPassword(),
+            AppTextButton(
+              buttonText: "Login",
+              textStyle: TextStyles.font16WhiteSemiBold,
+              onPressed: () {
+                validateThenDoLogin(context);
+              },
+            ),
+            verticalSpace(16),
+            const TermsAndConditionsText(),
+            const DontHaveAccountText(),
+            LoginBlocListener()
+                    ],
+                  ),
+          )),
     );
   }
 
