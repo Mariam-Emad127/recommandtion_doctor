@@ -11,6 +11,7 @@ void main() async{
     WidgetsFlutterBinding.ensureInitialized();
   setupGetIt();
   await checkIfLoggedInUser();
+
   runApp(  DocApp(appRouter: AppRouter(),));
 }
 
