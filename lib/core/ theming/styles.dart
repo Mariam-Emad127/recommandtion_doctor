@@ -130,6 +130,11 @@ static TextStyle font13DarkBRedRegular = TextStyle(
     color: ColorsManager.darkBlue,
   );
 
+  static TextStyle font16DarkBlueMedium = TextStyle(
+    fontSize: 16.sp,
+    fontWeight: FontWeightHelper.semiBold,
+    color: ColorsManager.darkBlue,
+  );
   static TextStyle font18DarkBlueBold = TextStyle(
     fontSize: 18.sp,
     fontWeight: FontWeightHelper.bold,
