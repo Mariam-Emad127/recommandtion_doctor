@@ -8,6 +8,9 @@ import 'package:recommandtion_doctor/feature/login/controller/cubit/login_cubit.
 import 'package:recommandtion_doctor/feature/onboarding/ui/onboarding_screen.dart';
 import 'package:recommandtion_doctor/feature/sign_up/logic/sign_up_cubit.dart';
 import 'package:recommandtion_doctor/feature/sign_up/ui/sign_up_screen.dart';
+import 'package:recommandtion_doctor/feature/user_profile/ui/edit_yourprofile.dart';
+import 'package:recommandtion_doctor/feature/user_profile/ui/user_profileScreen.dart';
+import 'package:recommandtion_doctor/feature/user_profile/ui/setting.dart';
 
 import '../../feature/login/ui/login_screen.dart';
 
@@ -30,18 +33,13 @@ class AppRouter {
               providers: [
                 BlocProvider<HomeCubit>(
                     create: (context) => HomeCubit(getIt())..getSpecializations()),
-                    // BlocProvider<LoginCubit>(   create: (BuildContext context) => getIt<LoginCubit>() ),
+                    
                     
                     ],
-                     // child: HomeScreen(),
-             // child: BlocProvider<HomeCubit>(   create: (context) => HomeCubit(getIt())..getSpecializations(),
-                    //  create: (context) => HomeCubit(getIt(),getIt())..getSpecializations(),
-              
-                    //child: BlocProvider( create: (context) => LoginCubit(getIt())..getUserName(),
+                  
                       child: HomeScreen(),
                     ),
-                  //),
-            //)
+              
             );
       case Routes.signUpScreen:
         return MaterialPageRoute(
@@ -49,6 +47,16 @@ class AppRouter {
                 create: (BuildContext context) => getIt<SignupCubit>(),
                 child: SignupScreen()));
 
+  case Routes.profileScreen:
+        return MaterialPageRoute(
+            builder: (_) => UserProfilescreen());
+
+  case Routes.settingSreen:
+        return MaterialPageRoute(
+            builder: (_) => SettindScreen());
+case Routes.EditprofileScreen:
+        return MaterialPageRoute(
+            builder: (_) => EditYourprofile());
       default:
         return MaterialPageRoute(
           builder: (_) => Scaffold(
