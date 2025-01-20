@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:recommandtion_doctor/core/helper/extensions.dart';
+import 'package:recommandtion_doctor/core/routing/routes.dart';
 
 import 'package:shared_preferences/shared_preferences.dart';
 import '../../../../core/ theming/colors.dart';
@@ -36,9 +38,12 @@ class _HomeTopBarState extends State<HomeTopBar> {
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              "Hi,  $userName",
-              style: TextStyles.font18DarkBlueBold,
+            InkWell(
+              onTap: (){   context.pushNamed(Routes.profileScreen);},
+              child: Text(
+                "Hi,  $userName",
+                style: TextStyles.font18DarkBlueBold,
+              ),
             ),
           ],
         ),

@@ -8,6 +8,7 @@ import 'package:recommandtion_doctor/feature/login/controller/cubit/login_cubit.
 import 'package:recommandtion_doctor/feature/onboarding/ui/onboarding_screen.dart';
 import 'package:recommandtion_doctor/feature/sign_up/logic/sign_up_cubit.dart';
 import 'package:recommandtion_doctor/feature/sign_up/ui/sign_up_screen.dart';
+import 'package:recommandtion_doctor/feature/user_profile/controller/cubit/get_userprofile_data_cubit.dart';
 import 'package:recommandtion_doctor/feature/user_profile/ui/edit_yourprofile.dart';
 import 'package:recommandtion_doctor/feature/user_profile/ui/user_profileScreen.dart';
 import 'package:recommandtion_doctor/feature/user_profile/ui/setting.dart';
@@ -29,34 +30,37 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => OnboardingScreen());
       case Routes.homeScreen:
         return MaterialPageRoute(
-            builder: (_) => MultiBlocProvider(
-              providers: [
-                BlocProvider<HomeCubit>(
-                    create: (context) => HomeCubit(getIt())..getSpecializations()),
-                    
-                    
-                    ],
-                  
-                      child: HomeScreen(),
-                    ),
-              
-            );
+          builder: (_) => MultiBlocProvider(
+            providers: [
+              BlocProvider<HomeCubit>(
+                  create: (context) =>
+                      HomeCubit(getIt())..getSpecializations()),
+            ],
+            child: HomeScreen(),
+          ),
+        );
       case Routes.signUpScreen:
         return MaterialPageRoute(
             builder: (_) => BlocProvider<SignupCubit>(
                 create: (BuildContext context) => getIt<SignupCubit>(),
                 child: SignupScreen()));
 
-  case Routes.profileScreen:
+      case Routes.profileScreen:
         return MaterialPageRoute(
-            builder: (_) => UserProfilescreen());
+            builder: (_) => BlocProvider<GetUserprofileDataCubit>(
+                  create: (context) => getIt<GetUserprofileDataCubit>(),
+                  child: UserProfilescreen(),
+                ));
 
-  case Routes.settingSreen:
+      case Routes.settingSreen:
+        return MaterialPageRoute(builder: (_) => SettindScreen());
+      case Routes.EditprofileScreen:
         return MaterialPageRoute(
-            builder: (_) => SettindScreen());
-case Routes.EditprofileScreen:
-        return MaterialPageRoute(
-            builder: (_) => EditYourprofile());
+            builder: (_) => BlocProvider<GetUserprofileDataCubit>(
+                  create: (context) =>
+                      getIt<GetUserprofileDataCubit>()..emitGetUserProfile(),
+                  child: EditYourprofile(),
+                ));
       default:
         return MaterialPageRoute(
           builder: (_) => Scaffold(
