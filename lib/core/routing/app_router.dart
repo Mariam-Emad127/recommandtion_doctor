@@ -56,10 +56,10 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => SettindScreen());
       case Routes.EditprofileScreen:
         return MaterialPageRoute(
-            builder: (_) => BlocProvider<GetUserprofileDataCubit>(
-                  create: (context) =>
-                      getIt<GetUserprofileDataCubit>()..emitGetUserProfile(),
-                  child: EditYourprofile(),
+            builder: (_) => BlocProvider<GetUserprofileDataCubit>.value(
+                //  create: (context) => getIt<GetUserprofileDataCubit>(),//..emitGetUserProfile(),
+                   value: getIt<GetUserprofileDataCubit>()..emitGetUserProfile() ,
+                   child: EditYourprofile(),
                 ));
       default:
         return MaterialPageRoute(

@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:recommandtion_doctor/core/%20theming/colors.dart';
 import 'package:recommandtion_doctor/core/helper/extensions.dart';
 import 'package:recommandtion_doctor/core/routing/routes.dart';
-import 'package:recommandtion_doctor/feature/user_profile/controller/cubit/get_userprofile_data_cubit.dart';
-import 'package:recommandtion_doctor/feature/user_profile/ui/widgets/app_bar.dart';
+ import 'package:recommandtion_doctor/feature/user_profile/ui/widgets/app_bar.dart';
 import 'package:recommandtion_doctor/feature/user_profile/ui/widgets/appointment_button.dart';
 import 'package:recommandtion_doctor/feature/user_profile/ui/widgets/cards_info.dart';
 import 'package:recommandtion_doctor/feature/user_profile/ui/widgets/name_emailText.dart';
@@ -37,7 +35,9 @@ Future <void>loaddata()async{
 
   @override
   Widget build(BuildContext context) {
-  
+            //final GetUserprofileDataCubit getUserprofileDataCubit = BlocProvider.of<GetUserprofileDataCubit>(context);
+
+
     return Scaffold(
       backgroundColor: ColorsManager.mainBlue,
       appBar: AppBar(
@@ -89,8 +89,11 @@ Future <void>loaddata()async{
                       ),
                       InkWell(
                                       onTap: (){  
-                                        context.read<GetUserprofileDataCubit>();
-                                         context.pushNamed(Routes.EditprofileScreen);},
+                                        //context.read<GetUserprofileDataCubit>().emitGetUserProfile();
+                                         context.pushNamed(Routes.EditprofileScreen);
+                                       //  context.read<GetUserprofileDataCubit>().emitGetUserProfile();
+                                         
+                                         },
 
                         child: CardsInfo(
                           imagePath: 'assets/svgs/personalcard.svg',
