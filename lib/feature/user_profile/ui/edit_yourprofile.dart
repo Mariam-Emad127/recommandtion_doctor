@@ -15,13 +15,13 @@ class EditYourprofile extends StatefulWidget {
 }
 
 class _EditYourprofileState extends State<EditYourprofile> {
-/*
+ 
   @override
   void initState() {
     super.initState();
     context.read<GetUserprofileDataCubit>().emitGetUserProfile();
   }
-  */
+   
   @override
   Widget build(BuildContext context) {
 
@@ -124,3 +124,4 @@ class _EditYourprofileState extends State<EditYourprofile> {
 
  
 }
+ 
