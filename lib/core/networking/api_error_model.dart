@@ -7,7 +7,7 @@ class ApiErrorModel {
 final String ?message;
 final int ? code;
 @JsonKey(name: "data")
- final Map<String,dynamic>?errors;
+ final List<dynamic>?errors;
 
  
   ApiErrorModel({required this.message,   this.code,  this.errors}   );
@@ -23,7 +23,7 @@ final int ? code;
 if(errors.isEmptyOrNull())return message?? "unKnown";
  
 
-  final errormessage=errors?.entries.map( (e){
+  final errormessage=errors?.reversed.map( (e){
    final value=  e.value;
 return "${value.join(',')}";
 
