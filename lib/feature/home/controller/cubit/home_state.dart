@@ -16,8 +16,6 @@ class HomeState with _$HomeState {
   const factory HomeState.doctorsError(ApiErrorModel apiErrorModel) =  DoctorsError;
 
 
-  const factory HomeState.dataLoading() = DataLoading;
-  const factory HomeState.dataSuccess(LoginResponse  loginResponse) = DataSuccess;
-  const factory HomeState.dataError(ApiErrorModel apiErrorModel ) = DataError;
+ 
 }
 
