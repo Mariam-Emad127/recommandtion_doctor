@@ -16,6 +16,7 @@ class DocApp extends StatelessWidget {
       builder: (context, child) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
+ 
           title: 'ScreenUtil Example',
           theme: ThemeData(primarySwatch: Colors.blue),
           // initialRoute: isLoggedInUser ? Routes.homeScreen : Routes.loginScreen,//Routes.onBoardingScreen,
