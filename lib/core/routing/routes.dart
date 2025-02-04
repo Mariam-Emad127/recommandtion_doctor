@@ -6,7 +6,7 @@ class Routes{
   static const String profileScreen = '/profileScreen';
   static const String settingSreen = '/setting';
   static const String EditprofileScreen = '/edit_yourprofile';
-
+  static const String DoctorDetailedScreen = '/doctor_detaild_screen';
 //lib\feature\user_profile\ui\edit_yourprofile.dart
 
 }

@@ -15,6 +15,7 @@ HomeRepo homeRepo;
 //final LoginResponse? loginResponse;
   HomeCubit(this.homeRepo ) : super(HomeState.initial());
 List<Specialization?>?specializationDataList=[];
+ Doctors ?doctor;
 
 void getSpecializations ()async{
  emit(HomeState.specializationsLoading());
@@ -48,21 +49,18 @@ emit(HomeState.doctorsSuccess(doctorsList));
         ?.firstWhere((specialization) => specialization?.id == specializationId)
         ?.doctors;
   }
+ 
+ //Doctors?
+ void getDoctorInfo({required int? doctorId}){
+  if(doctorId==doctor?.id){
+    emit(HomeState.onedoctorSuccess(doctor));
+    //return doctor!;
+ 
+  }
 
-/*
-void getUserName()async{
-  final response=await homeRepo.getUserNameInfo();
- response.when(
-      success: (loginResponse) {
-        print("222222 $loginResponse");
-        emit(HomeState.dataSuccess (loginResponse ));
-      },
-      failure: (errorHandler) {
-        emit(HomeState.dataError(errorHandler));
-      },
-    );
+
+else{emit(HomeState.doctorsError(ApiErrorModelHandler.handle( "No Doctors Found")));}
+
+
 }
-*/
-
-
 }

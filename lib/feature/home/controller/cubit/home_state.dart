@@ -15,9 +15,7 @@ class HomeState with _$HomeState {
   const factory HomeState.doctorsSuccess(List<Doctors?>? doctorsList) = DoctorsSuccess;
   const factory HomeState.doctorsError(ApiErrorModel apiErrorModel) =  DoctorsError;
 
-
-  const factory HomeState.dataLoading() = DataLoading;
-  const factory HomeState.dataSuccess(LoginResponse  loginResponse) = DataSuccess;
-  const factory HomeState.dataError(ApiErrorModel apiErrorModel ) = DataError;
+  const factory HomeState.onedoctorSuccess(Doctors? doctor ) = OneDoctorSuccess;
+  
 }
 
