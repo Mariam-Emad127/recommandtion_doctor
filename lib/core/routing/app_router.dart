@@ -4,6 +4,7 @@ import 'package:recommandtion_doctor/core/di/dependency_injection.dart';
 import 'package:recommandtion_doctor/core/routing/routes.dart';
 import 'package:recommandtion_doctor/feature/home/controller/cubit/home_cubit.dart';
 import 'package:recommandtion_doctor/feature/home/ui/home_screen.dart';
+import 'package:recommandtion_doctor/feature/home/ui/widgets/doctor_detailed_screen.dart';
 import 'package:recommandtion_doctor/feature/login/controller/cubit/login_cubit.dart';
 import 'package:recommandtion_doctor/feature/onboarding/ui/onboarding_screen.dart';
 import 'package:recommandtion_doctor/feature/sign_up/logic/sign_up_cubit.dart';
@@ -57,9 +58,15 @@ class AppRouter {
       case Routes.EditprofileScreen:
         return MaterialPageRoute(
             builder: (_) => BlocProvider<GetUserprofileDataCubit>.value(
-                //  create: (context) => getIt<GetUserprofileDataCubit>(),//..emitGetUserProfile(),
-                   value: getIt<GetUserprofileDataCubit>()..emitGetUserProfile() ,
-                   child: EditYourprofile(),
+                  //  create: (context) => getIt<GetUserprofileDataCubit>(),//..emitGetUserProfile(),
+                  value: getIt<GetUserprofileDataCubit>()..emitGetUserProfile(),
+                  child: EditYourprofile(),
+                ));
+      case Routes.DoctorDetailedScreen:
+        return MaterialPageRoute(
+            builder: (_) => BlocProvider<HomeCubit>(
+                  create: (context) =>  HomeCubit(getIt()),
+                  child: DoctorDetailedScreen(),
                 ));
       default:
         return MaterialPageRoute(

@@ -349,10 +349,10 @@ class __$$SuccessUpdateImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? updateProfileResponse = freezed,
+    Object? updateProfileResponse = null,
   }) {
     return _then(_$SuccessUpdateImpl(
-      freezed == updateProfileResponse
+      null == updateProfileResponse
           ? _value.updateProfileResponse
           : updateProfileResponse // ignore: cast_nullable_to_non_nullable
               as UpdateProfileResponse,
@@ -378,13 +378,12 @@ class _$SuccessUpdateImpl implements SuccessUpdate {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SuccessUpdateImpl &&
-            const DeepCollectionEquality()
-                .equals(other.updateProfileResponse, updateProfileResponse));
+            (identical(other.updateProfileResponse, updateProfileResponse) ||
+                other.updateProfileResponse == updateProfileResponse));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(updateProfileResponse));
+  int get hashCode => Object.hash(runtimeType, updateProfileResponse);
 
   /// Create a copy of UpdaeUserprofileState
   /// with the given fields replaced by the non-null parameter values.
