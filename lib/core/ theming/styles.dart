@@ -153,6 +153,12 @@ static TextStyle font13DarkBRedRegular = TextStyle(
     color: Colors.white,
   );
 
+
+  static TextStyle font20BlueSemiBold = TextStyle(
+    fontSize: 20.sp,
+   // fontWeight: FontWeightHelper.medium,
+    fontWeight: FontWeightHelper.semiBold,
+    color: ColorsManager.darkBlue,  );
 static  TextStyle font25WhiteMedium= TextStyle(fontSize: 25,color: Colors.white);
 
 }

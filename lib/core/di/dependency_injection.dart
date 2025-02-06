@@ -28,11 +28,14 @@ getIt.registerFactory<SignupCubit>( ()=>SignupCubit(getIt()));
 
 getIt.registerLazySingleton<HomeApiService>( ()=>HomeApiService(dio));
 getIt.registerLazySingleton<HomeRepo>( ()=>HomeRepo(getIt()));
+//getIt.registerLazySingleton<GetUserprofileDataCubit>(()=>GetUserprofileDataCubit(getIt()));
+
 //getIt.registerFactory<HomeCubit>( ()=>HomeCubit(getIt()));
 
 
 getIt.registerLazySingleton<ProfileApiService>( ()=>ProfileApiService(dio));
 getIt.registerLazySingleton<GetDateRepo>(()=>GetDateRepo(getIt()));
 getIt.registerLazySingleton<GetUserprofileDataCubit>(()=>GetUserprofileDataCubit(getIt()));
+
 
 } 

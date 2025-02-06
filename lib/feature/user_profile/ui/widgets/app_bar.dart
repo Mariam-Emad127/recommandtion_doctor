@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:recommandtion_doctor/core/%20theming/styles.dart';
+import 'package:recommandtion_doctor/core/helper/extensions.dart';
 
 class AppBarScreen extends StatelessWidget {
   const AppBarScreen({super.key});
@@ -16,9 +17,9 @@ class AppBarScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Icon(
-                Icons.arrow_back_ios_new_sharp,
-                color: Colors.white,
+              IconButton(
+               icon: Icon(  Icons.arrow_back_ios_new_sharp),
+                color: Colors.white, onPressed: () {context.pop();  },
               ),
               Text(
                 "Profile",

@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:recommandtion_doctor/core/%20theming/styles.dart';
 import 'package:recommandtion_doctor/feature/home/ui/widgets/doctors_list/doctorCard.dart';
 import 'package:recommandtion_doctor/feature/home/ui/widgets/recommendd_appbar.dart';
-import '../../../../../core/widgets/app_text_button.dart';
-import '../../../data/models/specializations_response_model.dart';
+import '../../../../../../core/widgets/app_text_button.dart';
+import '../../../../data/models/specializations_response_model.dart';
 
 class Doctorinfobuilder extends StatefulWidget {
    final int ?id;
   final Doctors ?doctors ;
-    Doctorinfobuilder({super.key,  required  this.doctors,required this.id });
+    Doctorinfobuilder(  {super.key,  required  this.doctors,required this.id });
 
   @override
   State<Doctorinfobuilder> createState() => _DoctorinfobuilderState();
@@ -40,7 +40,9 @@ class _DoctorinfobuilderState extends State<Doctorinfobuilder>with SingleTickerP
                         SizedBox(
                           height: 10,
                         ),
-                        Doctorcard(name: '${widget.doctors?.name}', specialization:  '${widget.doctors?.description }', degree:  '${widget.doctors?.name}',),
+                        Doctorcard(name: '${widget.doctors?.name}',
+                         specialization:  '${widget.doctors?.description }',
+                          degree:  '${widget.doctors?.name}',),
                         SizedBox(
                           height: 10,
                         ),

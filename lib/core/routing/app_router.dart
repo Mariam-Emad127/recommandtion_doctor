@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:recommandtion_doctor/core/di/dependency_injection.dart';
 import 'package:recommandtion_doctor/core/routing/routes.dart';
+import 'package:recommandtion_doctor/feature/home/controller/cubit/getdoctors_cubit.dart';
 import 'package:recommandtion_doctor/feature/home/controller/cubit/home_cubit.dart';
 import 'package:recommandtion_doctor/feature/home/ui/home_screen.dart';
-import 'package:recommandtion_doctor/feature/home/ui/widgets/doctor_detailed_screen.dart';
+import 'package:recommandtion_doctor/feature/home/ui/widgets/doctors_list/detailed_doctor/doctor_detailed_screen.dart';
+import 'package:recommandtion_doctor/feature/home/ui/widgets/search_doctor/searchDoctor_screen.dart';
 import 'package:recommandtion_doctor/feature/login/controller/cubit/login_cubit.dart';
 import 'package:recommandtion_doctor/feature/onboarding/ui/onboarding_screen.dart';
 import 'package:recommandtion_doctor/feature/sign_up/logic/sign_up_cubit.dart';
@@ -65,8 +67,16 @@ class AppRouter {
       case Routes.DoctorDetailedScreen:
         return MaterialPageRoute(
             builder: (_) => BlocProvider<HomeCubit>(
-                  create: (context) =>  HomeCubit(getIt()),
+                  create: (context) => HomeCubit(getIt()),
                   child: DoctorDetailedScreen(),
+                ));
+
+      case Routes.SearchdoctorScreen:
+        return MaterialPageRoute(
+            builder: (_) => BlocProvider<GetdoctorsCubit>(
+                  create: (context) =>
+                      GetdoctorsCubit(getIt())..getAllDoctors(),
+                  child: SearchdoctorScreen(),
                 ));
       default:
         return MaterialPageRoute(
