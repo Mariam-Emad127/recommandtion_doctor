@@ -9,7 +9,7 @@ part 'getdoctors_cubit.freezed.dart';
 
 class GetdoctorsCubit extends Cubit<GetdoctorsState> {
   HomeRepo homeRepo;
-         //List<AllDoctorsModel>?allDoctorsModel=[];
+      List<AllDoctorsModel>?allDoctorsModel=[];
        //allDoctorsModel=doctorResponse.doctorList;
   GetdoctorsCubit(this.homeRepo) : super(GetdoctorsState.initial());
 
@@ -30,6 +30,20 @@ class GetdoctorsCubit extends Cubit<GetdoctorsState> {
     }
   }
 
+  Future<void> getserchaDoctors(String letter) async {
+final response=await homeRepo.searchDoctor(name: letter);
+response.when(success:  (doctorResponse){
+  allDoctorsModel=doctorResponse.doctorList;
+emit(GetdoctorsState.doctorsSuccess(allDoctorsModel));
 
+
+}, failure:  (apiErrorModel) {
+        emit(GetdoctorsState.doctorsError(apiErrorModel));
+      });
+
+
+
+
+  }
 
 }

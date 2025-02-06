@@ -1,25 +1,19 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:recommandtion_doctor/core/helper/extensions.dart';
- import 'package:recommandtion_doctor/feature/home/data/models/specializations_response_model.dart';
-import 'package:recommandtion_doctor/feature/home/ui/widgets/doctors_list/doctros_bloc_builder.dart';
- import 'package:recommandtion_doctor/feature/home/ui/widgets/list_item.dart';
+import 'package:recommandtion_doctor/feature/home/data/models/specializations_response_model.dart';
+import 'package:recommandtion_doctor/feature/home/ui/widgets/list_item.dart';
 
-import '../../../../../core/routing/routes.dart';
 import '../../../controller/cubit/home_cubit.dart';
 import 'detailed_doctor/doctorInfobuilder.dart';
-import 'detailed_doctor/doctor_detailed_screen.dart';
- 
 
- 
 class DoctorsListViewItem extends StatelessWidget {
   final Doctors? doctorsModel;
-  const DoctorsListViewItem({super.key,required this.doctorsModel});
+  const DoctorsListViewItem({super.key, required this.doctorsModel});
 
   @override
   Widget build(BuildContext context) {
-  /*
+    /*
     return Container(
       margin: EdgeInsets.only(bottom: 16.h),
       child: Row(
@@ -57,17 +51,26 @@ class DoctorsListViewItem extends StatelessWidget {
       ),
     );
   */
- 
-  return GestureDetector(
-    onTap: (){
-       context.read<HomeCubit>()..getDoctorInfo(doctorId: doctorsModel?.id);
 
-       //context.pushNamed(Routes.DoctorDetailedScreen);
-       //context.pushNamed(Routes.DoctorDetailedScreen( ));
- Navigator.push(context,MaterialPageRoute(builder: (context) =>   Doctorinfobuilder( id: doctorsModel?.id, doctors: doctorsModel,)), ); 
-     },
-    child: ListItemWidget(emai: doctorsModel?.email, phone: doctorsModel?.phone,
-     name: doctorsModel?.name, gender:doctorsModel?.gender, degree:doctorsModel?.degree),
-  );
+    return GestureDetector(
+      onTap: () {
+        context.read<HomeCubit>()..getDoctorInfo(doctorId: doctorsModel?.id);
+
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) => Doctorinfobuilder(
+                    id: doctorsModel?.id,
+                    doctors: doctorsModel,
+                  )),
+        );
+      },
+      child: ListItemWidget(
+          emai: doctorsModel?.email,
+          phone: doctorsModel?.phone,
+          name: doctorsModel?.name,
+          gender: doctorsModel?.gender,
+          degree: doctorsModel?.degree),
+    );
   }
 }
