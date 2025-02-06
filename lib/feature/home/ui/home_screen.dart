@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
  import 'package:recommandtion_doctor/core/helper/spacing.dart';
-import 'package:recommandtion_doctor/feature/home/ui/widgets/doctors_blue_container.dart';
+ import 'package:recommandtion_doctor/feature/home/ui/widgets/doctors_blue_container.dart';
 import 'package:recommandtion_doctor/feature/home/ui/widgets/doctors_list/doctros_bloc_builder.dart';
 import 'package:recommandtion_doctor/feature/home/ui/widgets/home_top_bar.dart';
  import 'package:recommandtion_doctor/feature/home/ui/widgets/specializations_list/specializations_bloc_builder.dart';
+
+ import 'widgets/search_doctor/Recommendation_doctorText.dart';
  
  
 class HomeScreen extends StatelessWidget {
@@ -29,6 +31,8 @@ class HomeScreen extends StatelessWidget {
           verticalSpace(10),
           SpecializationsBlocBuilder(),
           verticalSpace(8),
+               verticalSpace(8),
+          RecommendationDoctorText(),
           const DoctorsBlocBuilder(),
           // DoctorsBlocBuilder(),
         ],

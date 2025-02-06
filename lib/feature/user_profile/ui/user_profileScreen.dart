@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
- import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:recommandtion_doctor/core/%20theming/colors.dart';
 import 'package:recommandtion_doctor/core/helper/extensions.dart';
 import 'package:recommandtion_doctor/core/routing/routes.dart';
- import 'package:recommandtion_doctor/feature/user_profile/ui/widgets/app_bar.dart';
+import 'package:recommandtion_doctor/feature/user_profile/ui/widgets/app_bar.dart';
 import 'package:recommandtion_doctor/feature/user_profile/ui/widgets/appointment_button.dart';
 import 'package:recommandtion_doctor/feature/user_profile/ui/widgets/cards_info.dart';
 import 'package:recommandtion_doctor/feature/user_profile/ui/widgets/name_emailText.dart';
@@ -17,27 +17,25 @@ class UserProfilescreen extends StatefulWidget {
 }
 
 class _UserProfilescreenState extends State<UserProfilescreen> {
-    String userName = "Loading...";
-     String email = "Loading...";
+  String userName = "Loading...";
+  String email = "Loading...";
   @override
   void initState() {
-   loaddata();
+    loaddata();
     super.initState();
   }
-Future <void>loaddata()async{
- final prefs1 = await SharedPreferences.getInstance();
+
+  Future<void> loaddata() async {
+    final prefs1 = await SharedPreferences.getInstance();
     setState(() {
       userName = prefs1.getString("usernam") ?? "Unknown User";
-      email    = prefs1.getString( "email")   ??  "Unknown User";
+      email = prefs1.getString("email") ?? "Unknown User";
     });
-
-}
+  }
 
   @override
   Widget build(BuildContext context) {
-            //final GetUserprofileDataCubit getUserprofileDataCubit = BlocProvider.of<GetUserprofileDataCubit>(context);
-
-
+ 
     return Scaffold(
       backgroundColor: ColorsManager.mainBlue,
       appBar: AppBar(
@@ -77,7 +75,13 @@ Future <void>loaddata()async{
                           color: ColorsManager.lighterGray),
                       child: Icon(Icons.edit, color: Colors.blue)),
                 ),
-           NameEmailtext(userName:userName ,email: email,),   
+                Padding(
+                  padding: EdgeInsets.only(left: 40),
+                  child: NameEmailtext(
+                    userName: userName,
+                    email: email,
+                  ),
+                ),
                 Padding(
                   padding: EdgeInsets.only(top: 150, right: 10, left: 10),
                   child: Column(
@@ -88,13 +92,9 @@ Future <void>loaddata()async{
                         height: 20.h,
                       ),
                       InkWell(
-                                      onTap: (){  
-                                        //context.read<GetUserprofileDataCubit>().emitGetUserProfile();
-                                         context.pushNamed(Routes.EditprofileScreen);
-                                       //  context.read<GetUserprofileDataCubit>().emitGetUserProfile();
-                                         
-                                         },
-
+                        onTap: () {
+                          context.pushNamed(Routes.EditprofileScreen);
+                         },
                         child: CardsInfo(
                           imagePath: 'assets/svgs/personalcard.svg',
                           title: 'Personal Information',

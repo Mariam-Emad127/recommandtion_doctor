@@ -10,15 +10,14 @@ class SettingAppbar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceAround ,
                  children: [
                     IconButton(
                     onPressed: (){context.pop();},
                    icon:Icon(Icons.arrow_back_ios_new_sharp),
                     color: Colors.black,
                   ),
-                  const SizedBox(
-                    width: 130,
-                  ),
+                  
                   Text(
                    title,
                     style: TextStyles.font18DarkBlueBold,

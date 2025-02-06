@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:recommandtion_doctor/core/helper/extensions.dart';
 import 'package:recommandtion_doctor/core/routing/routes.dart';
@@ -39,7 +38,9 @@ class _HomeTopBarState extends State<HomeTopBar> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             InkWell(
-              onTap: (){   context.pushNamed(Routes.profileScreen);},
+              onTap: () {
+                context.pushNamed(Routes.profileScreen);
+              },
               child: Text(
                 "Hi,  $userName",
                 style: TextStyles.font18DarkBlueBold,

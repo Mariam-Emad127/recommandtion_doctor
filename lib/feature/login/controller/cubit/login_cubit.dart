@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:recommandtion_doctor/core/helper/constans.dart';
 import 'package:recommandtion_doctor/core/helper/shared_pref_helper.dart';
-import 'package:recommandtion_doctor/core/networking/api_result.dart';
 import 'package:recommandtion_doctor/core/networking/dio_factory.dart';
 import 'package:recommandtion_doctor/feature/login/controller/cubit/login_state.dart';
 import 'package:recommandtion_doctor/feature/login/data/models/login_request_body.dart';

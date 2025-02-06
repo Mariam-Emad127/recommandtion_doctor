@@ -4,7 +4,7 @@ import 'package:recommandtion_doctor/feature/home/controller/cubit/home_cubit.da
 import 'package:recommandtion_doctor/feature/home/ui/widgets/doctors_list/doctors_list_view.dart';
 
 class DoctorsBlocBuilder extends StatelessWidget {
-  const DoctorsBlocBuilder({super.key});
+  const DoctorsBlocBuilder( {super.key});
 
   @override
   Widget build(BuildContext context) {
