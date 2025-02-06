@@ -15,14 +15,19 @@ class ListItemWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {    return Container(
       margin: EdgeInsets.only(bottom: 16.h),
+      padding: EdgeInsets.only(top: 5,bottom: 5),
       child: Row(
         children: [
-         Image.network(
-          "https://t4.ftcdn.net/jpg/02/60/04/09/360_F_260040900_oO6YW1sHTnKxby4GcjCvtypUCWjnQRg5.jpg",
-                 height: 90.h,
-                width: 90.w,
-       
+               
+           ClipRRect(
+          borderRadius: BorderRadius.circular(12), // Image border
+          child: SizedBox.fromSize(
+            size: Size.fromRadius(48), // Image radius
+            child: Image.network(
+                "https://t4.ftcdn.net/jpg/02/60/04/09/360_F_260040900_oO6YW1sHTnKxby4GcjCvtypUCWjnQRg5.jpg",
+                fit: BoxFit.cover),
           ),
+        ),
           horizontalSpace(16),
           Expanded(
             child: Column(
