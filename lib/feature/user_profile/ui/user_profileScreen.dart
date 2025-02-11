@@ -93,7 +93,7 @@ class _UserProfilescreenState extends State<UserProfilescreen> {
                       ),
                       InkWell(
                         onTap: () {
-                          context.pushNamed(Routes.EditprofileScreen);
+                          context.pushNamed(Routes.editprofileScreen);
                          },
                         child: CardsInfo(
                           imagePath: 'assets/svgs/personalcard.svg',

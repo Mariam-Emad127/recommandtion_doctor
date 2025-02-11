@@ -16,7 +16,7 @@ class RecommendationDoctorText extends StatelessWidget {
               GestureDetector(
                 onTap: (){
                 
-                  context.pushNamed(Routes.SearchdoctorScreen);
+                  context.pushNamed(Routes.searchdoctorScreen);
                 },
                 child: Text( "See All",style: TextStyles.font12BlueRegular))
             ],

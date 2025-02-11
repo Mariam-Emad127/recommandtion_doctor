@@ -16,6 +16,7 @@ import 'package:recommandtion_doctor/feature/user_profile/ui/edit_yourprofile.da
 import 'package:recommandtion_doctor/feature/user_profile/ui/user_profileScreen.dart';
 import 'package:recommandtion_doctor/feature/user_profile/ui/setting.dart';
 
+import '../../feature/Book Appointment/Book Appointment_screen.dart';
 import '../../feature/login/ui/login_screen.dart';
 
 class AppRouter {
@@ -57,27 +58,31 @@ class AppRouter {
 
       case Routes.settingSreen:
         return MaterialPageRoute(builder: (_) => SettindScreen());
-      case Routes.EditprofileScreen:
+      case Routes.editprofileScreen:
         return MaterialPageRoute(
             builder: (_) => BlocProvider<GetUserprofileDataCubit>.value(
                   //  create: (context) => getIt<GetUserprofileDataCubit>(),//..emitGetUserProfile(),
                   value: getIt<GetUserprofileDataCubit>()..emitGetUserProfile(),
                   child: EditYourprofile(),
                 ));
-      case Routes.DoctorDetailedScreen:
+      case Routes.doctorDetailedScreen:
         return MaterialPageRoute(
             builder: (_) => BlocProvider<HomeCubit>(
                   create: (context) => HomeCubit(getIt()),
                   child: DoctorDetailedScreen(),
                 ));
 
-      case Routes.SearchdoctorScreen:
+      case Routes.searchdoctorScreen:
         return MaterialPageRoute(
             builder: (_) => BlocProvider<GetdoctorsCubit>(
                   create: (context) =>
                       GetdoctorsCubit(getIt())..getAllDoctors(),
                   child: SearchdoctorScreen(),
                 ));
+
+case Routes.appointmentScreen:
+return MaterialPageRoute(builder:  (_)=>BookappointmentScreen());
+
       default:
         return MaterialPageRoute(
           builder: (_) => Scaffold(
