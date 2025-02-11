@@ -19,8 +19,7 @@ class SearchdoctorScreen extends StatefulWidget {
 class _SearchdoctorScreenState extends State<SearchdoctorScreen> {
   @override
   void initState() {
-   // context.read<GetdoctorsCubit>()..getserchaDoctors(val);
-    super.initState();
+     super.initState();
   }
 
   @override
@@ -33,7 +32,7 @@ class _SearchdoctorScreenState extends State<SearchdoctorScreen> {
             children: [
               RecommenddAppbar(title: "Recommendation Doctor"),
               CustomSearchTextField(
-                onSubmit: (String val) {
+                onChanged: (String val) {
                   context.read<GetdoctorsCubit>()..getserchaDoctors(val);
                 },
               ),

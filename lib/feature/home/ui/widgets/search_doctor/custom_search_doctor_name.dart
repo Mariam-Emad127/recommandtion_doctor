@@ -1,14 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:recommandtion_doctor/feature/home/controller/cubit/getdoctors_cubit.dart';
-
+import 'package:recommandtion_doctor/feature/home/ui/widgets/search_doctor/FilterBottomSheet.dart';
 import '../../../../../core/ theming/colors.dart';
  
 class CustomSearchTextField extends StatelessWidget {
-   //Function fun= void(String val)  ;
-    final Function(String) onSubmit;
-  const CustomSearchTextField({super.key, required this.onSubmit});
+     final Function(String) onChanged;
+  const CustomSearchTextField({super.key, required this.onChanged});
 
   @override
   Widget build(BuildContext context) {
@@ -19,9 +16,8 @@ class CustomSearchTextField extends StatelessWidget {
           SizedBox(
             width: 310.w,
             child: TextField(
-              onChanged:onSubmit ,
-            // onSubmitted:onSubmit,//(){fun;},
-               decoration: InputDecoration(
+              onChanged:onChanged ,
+                decoration: InputDecoration(
                  focusedBorder: buildOutlineInputBorder(),
                  enabledBorder: buildOutlineInputBorder(),
                 hoverColor: Colors.grey,
@@ -45,7 +41,11 @@ class CustomSearchTextField extends StatelessWidget {
             ),
           ),
         
-        IconButton(onPressed: (){} , icon: Icon(Icons.filter_list_outlined ))
+        IconButton(onPressed: (){
+
+//showFilterBottomSheet(context);
+
+        } , icon: Icon(Icons.filter_list_outlined ))
         ],
       ),
     );
@@ -61,4 +61,23 @@ class CustomSearchTextField extends StatelessWidget {
       ),
     );
   }
+
+
+ void showFilterBottomSheet(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true, // Make it full height if needed
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+      ),
+      builder: (context) {
+        return Padding(
+          padding: EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
+          child: FilterBottomSheet(),
+        );
+      },
+    );
+  }
+
+
 }
