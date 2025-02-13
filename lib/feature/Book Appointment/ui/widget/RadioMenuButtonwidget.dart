@@ -22,18 +22,14 @@ class Radiomenubuttonwidget extends StatefulWidget {
 }
 
 class _RadiomenubuttonwidgetState extends State<Radiomenubuttonwidget> {
- // int _selectedValue = 1;
-  @override
+   @override
   Widget build(BuildContext context) {
     return RadioMenuButton<int>(
       value: widget.val,
       groupValue: widget.groupValue,
-      onChanged:
-       (int ?value) {
-          widget.onChanged(value!);
-        //setState(() {
-        
-         // _selectedValue = value!; });
+      onChanged: (int? value) {
+        widget.onChanged(value!);
+ 
       },
       child: Row(children: [
         Text(
@@ -48,6 +44,36 @@ class _RadiomenubuttonwidgetState extends State<Radiomenubuttonwidget> {
           height: 45,
         ),
       ]),
+    );
+  }
+}
+
+class RadioButtonWidget extends StatefulWidget {
+  final String title;
+  final int val;
+  final int groupValue;
+  final ValueChanged<int> onChanged;
+  const RadioButtonWidget(
+      {super.key,
+      required this.title,
+      required this.val,
+      required this.groupValue,
+      required this.onChanged});
+
+  @override
+  State<RadioButtonWidget> createState() => _RadioButtonWidgetState();
+}
+
+class _RadioButtonWidgetState extends State<RadioButtonWidget> {
+  @override
+  Widget build(BuildContext context) {
+    return RadioListTile(
+      title:Text( widget.title),
+      value: widget.val,
+      groupValue: widget.groupValue,
+      onChanged: (int? value) {
+        widget.onChanged(value!);
+      },
     );
   }
 }

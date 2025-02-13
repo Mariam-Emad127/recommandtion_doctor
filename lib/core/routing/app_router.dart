@@ -16,7 +16,9 @@ import 'package:recommandtion_doctor/feature/user_profile/ui/edit_yourprofile.da
 import 'package:recommandtion_doctor/feature/user_profile/ui/user_profileScreen.dart';
 import 'package:recommandtion_doctor/feature/user_profile/ui/setting.dart';
 
-import '../../feature/Book Appointment/Book Appointment_screen.dart';
+import '../../feature/Book Appointment/ui/Book Appointment _Summary.dart';
+import '../../feature/Book Appointment/ui/Book Appointment_screen.dart';
+import '../../feature/Book Appointment/ui/payment_option_screen.dart';
 import '../../feature/login/ui/login_screen.dart';
 
 class AppRouter {
@@ -82,7 +84,10 @@ class AppRouter {
 
 case Routes.appointmentScreen:
 return MaterialPageRoute(builder:  (_)=>BookappointmentScreen());
-
+case Routes.paymentScreen:
+return MaterialPageRoute(builder:  (_)=>PamentOptionScreen());
+case Routes.paymentSummaryScreen:
+return MaterialPageRoute(builder:  (_)=>BookApointmentSummary());
       default:
         return MaterialPageRoute(
           builder: (_) => Scaffold(
