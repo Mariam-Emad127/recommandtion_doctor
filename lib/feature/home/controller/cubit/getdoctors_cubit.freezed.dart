@@ -19,7 +19,7 @@ mixin _$GetdoctorsState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(List<AllDoctorsModel?>? allDoctorsModel)
+    required TResult Function(List<AllDoctorsModel>? allDoctorsModel)
         doctorsSuccess,
     required TResult Function(ApiErrorModel apiErrorModel) doctorsError,
     required TResult Function() doctorsLoading,
@@ -28,7 +28,7 @@ mixin _$GetdoctorsState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(List<AllDoctorsModel?>? allDoctorsModel)? doctorsSuccess,
+    TResult? Function(List<AllDoctorsModel>? allDoctorsModel)? doctorsSuccess,
     TResult? Function(ApiErrorModel apiErrorModel)? doctorsError,
     TResult? Function()? doctorsLoading,
   }) =>
@@ -36,7 +36,7 @@ mixin _$GetdoctorsState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(List<AllDoctorsModel?>? allDoctorsModel)? doctorsSuccess,
+    TResult Function(List<AllDoctorsModel>? allDoctorsModel)? doctorsSuccess,
     TResult Function(ApiErrorModel apiErrorModel)? doctorsError,
     TResult Function()? doctorsLoading,
     required TResult orElse(),
@@ -132,7 +132,7 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(List<AllDoctorsModel?>? allDoctorsModel)
+    required TResult Function(List<AllDoctorsModel>? allDoctorsModel)
         doctorsSuccess,
     required TResult Function(ApiErrorModel apiErrorModel) doctorsError,
     required TResult Function() doctorsLoading,
@@ -144,7 +144,7 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(List<AllDoctorsModel?>? allDoctorsModel)? doctorsSuccess,
+    TResult? Function(List<AllDoctorsModel>? allDoctorsModel)? doctorsSuccess,
     TResult? Function(ApiErrorModel apiErrorModel)? doctorsError,
     TResult? Function()? doctorsLoading,
   }) {
@@ -155,7 +155,7 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(List<AllDoctorsModel?>? allDoctorsModel)? doctorsSuccess,
+    TResult Function(List<AllDoctorsModel>? allDoctorsModel)? doctorsSuccess,
     TResult Function(ApiErrorModel apiErrorModel)? doctorsError,
     TResult Function()? doctorsLoading,
     required TResult orElse(),
@@ -214,7 +214,7 @@ abstract class _$$DoctorsSuccessImplCopyWith<$Res> {
           $Res Function(_$DoctorsSuccessImpl) then) =
       __$$DoctorsSuccessImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<AllDoctorsModel?>? allDoctorsModel});
+  $Res call({List<AllDoctorsModel>? allDoctorsModel});
 }
 
 /// @nodoc
@@ -236,7 +236,7 @@ class __$$DoctorsSuccessImplCopyWithImpl<$Res>
       freezed == allDoctorsModel
           ? _value._allDoctorsModel
           : allDoctorsModel // ignore: cast_nullable_to_non_nullable
-              as List<AllDoctorsModel?>?,
+              as List<AllDoctorsModel>?,
     ));
   }
 }
@@ -244,12 +244,12 @@ class __$$DoctorsSuccessImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$DoctorsSuccessImpl implements DoctorsSuccess {
-  const _$DoctorsSuccessImpl(final List<AllDoctorsModel?>? allDoctorsModel)
+  const _$DoctorsSuccessImpl(final List<AllDoctorsModel>? allDoctorsModel)
       : _allDoctorsModel = allDoctorsModel;
 
-  final List<AllDoctorsModel?>? _allDoctorsModel;
+  final List<AllDoctorsModel>? _allDoctorsModel;
   @override
-  List<AllDoctorsModel?>? get allDoctorsModel {
+  List<AllDoctorsModel>? get allDoctorsModel {
     final value = _allDoctorsModel;
     if (value == null) return null;
     if (_allDoctorsModel is EqualUnmodifiableListView) return _allDoctorsModel;
@@ -288,7 +288,7 @@ class _$DoctorsSuccessImpl implements DoctorsSuccess {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(List<AllDoctorsModel?>? allDoctorsModel)
+    required TResult Function(List<AllDoctorsModel>? allDoctorsModel)
         doctorsSuccess,
     required TResult Function(ApiErrorModel apiErrorModel) doctorsError,
     required TResult Function() doctorsLoading,
@@ -300,7 +300,7 @@ class _$DoctorsSuccessImpl implements DoctorsSuccess {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(List<AllDoctorsModel?>? allDoctorsModel)? doctorsSuccess,
+    TResult? Function(List<AllDoctorsModel>? allDoctorsModel)? doctorsSuccess,
     TResult? Function(ApiErrorModel apiErrorModel)? doctorsError,
     TResult? Function()? doctorsLoading,
   }) {
@@ -311,7 +311,7 @@ class _$DoctorsSuccessImpl implements DoctorsSuccess {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(List<AllDoctorsModel?>? allDoctorsModel)? doctorsSuccess,
+    TResult Function(List<AllDoctorsModel>? allDoctorsModel)? doctorsSuccess,
     TResult Function(ApiErrorModel apiErrorModel)? doctorsError,
     TResult Function()? doctorsLoading,
     required TResult orElse(),
@@ -361,10 +361,10 @@ class _$DoctorsSuccessImpl implements DoctorsSuccess {
 }
 
 abstract class DoctorsSuccess implements GetdoctorsState {
-  const factory DoctorsSuccess(final List<AllDoctorsModel?>? allDoctorsModel) =
+  const factory DoctorsSuccess(final List<AllDoctorsModel>? allDoctorsModel) =
       _$DoctorsSuccessImpl;
 
-  List<AllDoctorsModel?>? get allDoctorsModel;
+  List<AllDoctorsModel>? get allDoctorsModel;
 
   /// Create a copy of GetdoctorsState
   /// with the given fields replaced by the non-null parameter values.
@@ -443,7 +443,7 @@ class _$DoctorsErrorImpl implements DoctorsError {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(List<AllDoctorsModel?>? allDoctorsModel)
+    required TResult Function(List<AllDoctorsModel>? allDoctorsModel)
         doctorsSuccess,
     required TResult Function(ApiErrorModel apiErrorModel) doctorsError,
     required TResult Function() doctorsLoading,
@@ -455,7 +455,7 @@ class _$DoctorsErrorImpl implements DoctorsError {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(List<AllDoctorsModel?>? allDoctorsModel)? doctorsSuccess,
+    TResult? Function(List<AllDoctorsModel>? allDoctorsModel)? doctorsSuccess,
     TResult? Function(ApiErrorModel apiErrorModel)? doctorsError,
     TResult? Function()? doctorsLoading,
   }) {
@@ -466,7 +466,7 @@ class _$DoctorsErrorImpl implements DoctorsError {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(List<AllDoctorsModel?>? allDoctorsModel)? doctorsSuccess,
+    TResult Function(List<AllDoctorsModel>? allDoctorsModel)? doctorsSuccess,
     TResult Function(ApiErrorModel apiErrorModel)? doctorsError,
     TResult Function()? doctorsLoading,
     required TResult orElse(),
@@ -570,7 +570,7 @@ class _$doctorsLoadingImpl implements doctorsLoading {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(List<AllDoctorsModel?>? allDoctorsModel)
+    required TResult Function(List<AllDoctorsModel>? allDoctorsModel)
         doctorsSuccess,
     required TResult Function(ApiErrorModel apiErrorModel) doctorsError,
     required TResult Function() doctorsLoading,
@@ -582,7 +582,7 @@ class _$doctorsLoadingImpl implements doctorsLoading {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(List<AllDoctorsModel?>? allDoctorsModel)? doctorsSuccess,
+    TResult? Function(List<AllDoctorsModel>? allDoctorsModel)? doctorsSuccess,
     TResult? Function(ApiErrorModel apiErrorModel)? doctorsError,
     TResult? Function()? doctorsLoading,
   }) {
@@ -593,7 +593,7 @@ class _$doctorsLoadingImpl implements doctorsLoading {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(List<AllDoctorsModel?>? allDoctorsModel)? doctorsSuccess,
+    TResult Function(List<AllDoctorsModel>? allDoctorsModel)? doctorsSuccess,
     TResult Function(ApiErrorModel apiErrorModel)? doctorsError,
     TResult Function()? doctorsLoading,
     required TResult orElse(),

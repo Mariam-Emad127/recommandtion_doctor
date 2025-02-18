@@ -8,8 +8,7 @@ import 'package:recommandtion_doctor/feature/login/controller/cubit/login_state.
 import 'package:recommandtion_doctor/feature/login/data/models/login_request_body.dart';
 import 'package:recommandtion_doctor/feature/login/data/models/login_response.dart';
 import 'package:recommandtion_doctor/feature/login/data/repo/login_repo.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-
+ 
 class LoginCubit extends Cubit<LoginState> {
   final LoginRepo loginRepo;
   LoginResponse? loginResponse;
@@ -27,23 +26,32 @@ void emitLoginStates() async {
       ),
     );
      response.when(success: (loginResponse) async {
+  
        final username =  loginResponse.loginUserData?.userName ?? "Unknown User";
-       final prefs = await SharedPreferences.getInstance();
-        await prefs.setString("username", username);
-
-      userTokentoken(loginResponse.loginUserData?.token ?? "");
-
+ 
+     
+await SharedPrefHelper.setData("username",username);
+ 
+try{
+         await userTokentoken(loginResponse.loginUserData?.token??"");}
+         catch(e){print( "fffffffffffffff@$e");}
+     
       emit(LoginState.loginSuccess(username));
-    }, failure: (apiErrorModel) {
+    }, 
+    failure: (apiErrorModel) {
       emit(LoginState.loginError(apiErrorModel));
     });
     String name = "${loginResponse?.loginUserData?.userName}";
     print(name);
      
   }
-
+ 
   Future<void> userTokentoken(String token) async {
-    await SharedPrefHelper.setSecuredString(SharedPrefKeys.userToken, token);
-    DioFactory.setTokenIntoHeaderAfterLogin(token);
+    await SharedPrefHelper.setData(SharedPrefKeys.userToken,token);
+    print( "fffffffffffffff$token");
+    //.setSecuredString(SharedPrefKeys.userToken, token);
+    DioFactory.setTokenIntoHeaderAfterLogin(token );
   }
+ 
 }
+

@@ -91,7 +91,7 @@ class _PamentOptionScreenState extends State<PamentOptionScreen> {
                     AppTextButton(
                       buttonText: 'Continue',
                       textStyle: TextStyles.font16WhiteSemiBold,
-                      onPressed: () {context.pushNamed(Routes.paymentScreen);},
+                      onPressed: () {context.pushNamed(Routes.paymentSummaryScreen  );},
                     )
                         ],
                       ),

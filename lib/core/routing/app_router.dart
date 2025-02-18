@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:recommandtion_doctor/core/di/dependency_injection.dart';
 import 'package:recommandtion_doctor/core/routing/routes.dart';
+import 'package:recommandtion_doctor/feature/Book%20Appointment/controller/cubit/appointment_cubit.dart';
 import 'package:recommandtion_doctor/feature/home/controller/cubit/getdoctors_cubit.dart';
 import 'package:recommandtion_doctor/feature/home/controller/cubit/home_cubit.dart';
 import 'package:recommandtion_doctor/feature/home/ui/home_screen.dart';
@@ -15,9 +16,8 @@ import 'package:recommandtion_doctor/feature/user_profile/controller/cubit/get_u
 import 'package:recommandtion_doctor/feature/user_profile/ui/edit_yourprofile.dart';
 import 'package:recommandtion_doctor/feature/user_profile/ui/user_profileScreen.dart';
 import 'package:recommandtion_doctor/feature/user_profile/ui/setting.dart';
-
 import '../../feature/Book Appointment/ui/Book Appointment _Summary.dart';
-import '../../feature/Book Appointment/ui/Book Appointment_screen.dart';
+import '../../feature/Book Appointment/ui/Book Appointment_screen_listner.dart';
 import '../../feature/Book Appointment/ui/payment_option_screen.dart';
 import '../../feature/login/ui/login_screen.dart';
 
@@ -83,7 +83,10 @@ class AppRouter {
                 ));
 
 case Routes.appointmentScreen:
-return MaterialPageRoute(builder:  (_)=>BookappointmentScreen());
+return MaterialPageRoute(builder:(_)=>BlocProvider<AppointmentCubit>(
+  create: (context) => AppointmentCubit(getIt()),
+  child: BookappointmentScreen(),
+));
 case Routes.paymentScreen:
 return MaterialPageRoute(builder:  (_)=>PamentOptionScreen());
 case Routes.paymentSummaryScreen:

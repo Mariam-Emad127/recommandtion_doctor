@@ -1,5 +1,6 @@
  
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:recommandtion_doctor/core/%20theming/colors.dart';
 import 'package:recommandtion_doctor/feature/Book%20Appointment/ui/widget/list_step_circle.dart';
 
@@ -15,7 +16,7 @@ class BookApointmentSummary extends StatelessWidget {
         //padding: EdgeInsets.only(top: 25,right: 8,left: 8),
         child: Padding(
 
-                  padding: EdgeInsets.only(top: 35,right: 10,left: 10),
+                  padding: EdgeInsets.only(top: 35.h,right: 10.h,left: 10.h),
 
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
