@@ -2,6 +2,8 @@ import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:recommandtion_doctor/core/networking/api_service.dart';
 import 'package:recommandtion_doctor/core/networking/dio_factory.dart';
+import 'package:recommandtion_doctor/feature/Book%20Appointment/data/apis/appointment_api_services.dart';
+import 'package:recommandtion_doctor/feature/Book%20Appointment/data/repo/appointment_repo.dart';
 import 'package:recommandtion_doctor/feature/home/data/apis/home_api_service.dart';
 import 'package:recommandtion_doctor/feature/home/data/repos/home_repo.dart';
 import 'package:recommandtion_doctor/feature/login/controller/cubit/login_cubit.dart';
@@ -37,5 +39,9 @@ getIt.registerLazySingleton<ProfileApiService>( ()=>ProfileApiService(dio));
 getIt.registerLazySingleton<GetDateRepo>(()=>GetDateRepo(getIt()));
 getIt.registerLazySingleton<GetUserprofileDataCubit>(()=>GetUserprofileDataCubit(getIt()));
 
+
+
+getIt.registerLazySingleton<AppointmentApiServices>(()=>AppointmentApiServices(dio) );
+getIt.registerLazySingleton<AppointmentRepo>(()=>AppointmentRepo(getIt()) );
 
 } 

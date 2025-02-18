@@ -74,7 +74,7 @@ class SharedPrefHelper {
   static setString(String key) async {
     debugPrint('SharedPrefHelper : getString with key : $key');
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
-   // return sharedPreferences.setString (key);
+  //  return sharedPreferences.setString ("key","");
   }
 
 

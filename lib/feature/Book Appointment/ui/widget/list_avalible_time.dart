@@ -1,11 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:recommandtion_doctor/core/helper/shared_pref_helper.dart';
 
 import '../../../../core/ theming/styles.dart';
 
-class ListAvalibleTime extends StatelessWidget {
+class ListAvalibleTime extends StatefulWidget {
     ListAvalibleTime({super.key});
-  
- final List<String>times=["8:00 AM","8:30 AM","9:00 AM","9:30 AM","10:00 AM","10:30 AM"];
+
+  @override
+  State<ListAvalibleTime> createState() => _ListAvalibleTimeState();
+}
+
+class _ListAvalibleTimeState extends State<ListAvalibleTime> {
+ final List<String>times=["8:00","8:30","9:00","9:30","10:00","10:30"];
+
+int selecteditem=0;
 
   @override
   Widget build(BuildContext context) {
@@ -16,13 +24,27 @@ class ListAvalibleTime extends StatelessWidget {
              
                 itemCount: times.length,
                 itemBuilder: (BuildContext context, int index) {
+                  bool s=selecteditem==index;
                   return  
-                  Container(
-                    alignment: Alignment.center,
-                    // ColorsManager.lightGray
-                    decoration: BoxDecoration(color:Colors.grey[300] ,borderRadius: BorderRadius.circular(15)
-                  ),
-                  child: Text(times[index],style: TextStyles.font14DarkBlueBold ),
+                  InkWell(
+                    onTap: (){
+ setState(() {
+                         selecteditem = index;
+
+   saveDate("${times[index]}") ;
+ });
+
+                   
+               
+
+                    },
+                    child: Container(
+                      alignment: Alignment.center,
+                      // ColorsManager.lightGray
+                      decoration: BoxDecoration(color:s?Colors.blue :  Colors.grey[300] ,borderRadius: BorderRadius.circular(15)
+                    ),
+                    child: Text(times[index],style: TextStyles.font14DarkBlueBold ),
+                    ),
                   );
                
                   }, gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -35,4 +57,8 @@ class ListAvalibleTime extends StatelessWidget {
               ),
             );
   }
+
+  Future<void> saveDate(String time) async {
+    await SharedPrefHelper.setData( "time", time);
+   }
 }

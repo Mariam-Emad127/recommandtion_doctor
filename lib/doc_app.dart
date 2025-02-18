@@ -1,9 +1,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:recommandtion_doctor/core/routing/app_router.dart'; 
+import 'package:recommandtion_doctor/core/routing/app_router.dart';
+import 'package:recommandtion_doctor/main.dart'; 
 import 'core/routing/routes.dart';
-
+ 
 class DocApp extends StatelessWidget {
   final AppRouter appRouter;
   const DocApp({super.key, required this.appRouter});
@@ -19,9 +20,9 @@ class DocApp extends StatelessWidget {
  
           title: 'ScreenUtil Example',
           theme: ThemeData(primarySwatch: Colors.blue),
-          // initialRoute: isLoggedInUser ? Routes.homeScreen : Routes.loginScreen,//Routes.onBoardingScreen,
+           initialRoute: isLoggedInUser ? Routes.homeScreen : Routes.loginScreen,//Routes.onBoardingScreen,
            //initialRoute :Routes.onBoardingScreen,
-            initialRoute :Routes.paymentSummaryScreen  ,
+          //initialRoute :Routes.loginScreen  ,
           onGenerateRoute: appRouter.onGenerateRoute,
         );
       },
