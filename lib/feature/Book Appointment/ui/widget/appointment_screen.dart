@@ -14,8 +14,10 @@ import 'package:recommandtion_doctor/feature/Book%20Appointment/ui/widget/select
 import 'package:recommandtion_doctor/feature/home/ui/widgets/recommendd_appbar.dart';
 
 class AppointmentBlock extends StatefulWidget {
-  final int? id;
-  const AppointmentBlock({super.key, required this.id});
+  
+  const AppointmentBlock({super.key, 
+  
+  });
 
   @override
   State<AppointmentBlock> createState() => _AppointmentBlockState();
@@ -27,20 +29,17 @@ class _AppointmentBlockState extends State<AppointmentBlock> {
 DateTime d= DateTime.now();
 String loaded="mmmmmmmm";
  
-  
- //void 
+ 
   Future<String> 
   _loadSelectedValue() async {
     String
-        date = //await SharedPreferences prefs = await SharedPreferences.getInstance();
+        date =  
         await SharedPrefHelper.getString("date");
     String time = await SharedPrefHelper.getString("time");
-    // String loaded = "${time}_${date}";
-
+ 
     setState(() {
-           // loaded ="${d.year}-${date}${time}";//.replaceAll(' ', '') ; 
-            loaded ="${date} ${time}";//.replaceAll(' ', '') ; 
-
+             loaded ="${date} ${time}";//.replaceAll(' ', '') ; 
+            SharedPrefHelper.setData("date&time",loaded);
             print("2222222222222$loaded");
     });
     return loaded;
@@ -157,9 +156,7 @@ String loaded="mmmmmmmm";
                     buttonText: 'Continue',
                     textStyle: TextStyles.font16WhiteSemiBold,
                     onPressed: () {
-                      context.read<AppointmentCubit>()
-                        ..emitAppointmentStates( 
-                           5,  loaded);
+ //                     context.read<AppointmentCubit>()  ..emitAppointmentStates(    widget.id,  loaded);
                       context.pushNamed(Routes.paymentScreen);
                     },
                   )

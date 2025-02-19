@@ -36,7 +36,7 @@ DoctorInfoCard _$DoctorInfoCardFromJson(Map<String, dynamic> json) =>
       appointmentEndTime: json['appointmentEndTime'] as String?,
       status: json['status'] as String?,
       notes: json['notes'] as String?,
-      appointmentPrice: (json['appointmentPrice'] as num?)?.toInt(),
+      appointmentPrice: (json['appointment_price'] as num?)?.toInt(),
     );
 
 Map<String, dynamic> _$DoctorInfoCardToJson(DoctorInfoCard instance) =>
@@ -47,7 +47,7 @@ Map<String, dynamic> _$DoctorInfoCardToJson(DoctorInfoCard instance) =>
       'appointmentEndTime': instance.appointmentEndTime,
       'status': instance.status,
       'notes': instance.notes,
-      'appointmentPrice': instance.appointmentPrice,
+      'appointment_price': instance.appointmentPrice,
     };
 
 Doctor _$DoctorFromJson(Map<String, dynamic> json) => Doctor(

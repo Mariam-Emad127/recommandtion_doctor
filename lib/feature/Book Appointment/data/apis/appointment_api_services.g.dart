@@ -24,7 +24,7 @@ class _AppointmentApiServices implements AppointmentApiServices {
   final ParseErrorLogger? errorLogger;
 
   @override
-  Future<AppointmentResponseBody> AppointmentReques(
+  Future<AppointmentResponseBody?>? AppointmentReques(
       AppointmentRequestBody appointment_request_body) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -47,10 +47,12 @@ class _AppointmentApiServices implements AppointmentApiServices {
           _dio.options.baseUrl,
           baseUrl,
         )));
-    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
-    late AppointmentResponseBody _value;
+    final _result = await _dio.fetch<Map<String, dynamic>?>(_options);
+    late AppointmentResponseBody? _value;
     try {
-      _value = AppointmentResponseBody.fromJson(_result.data!);
+      _value = _result.data == null
+          ? null
+          : AppointmentResponseBody.fromJson(_result.data!);
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);
       rethrow;

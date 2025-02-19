@@ -88,9 +88,26 @@ return MaterialPageRoute(builder:(_)=>BlocProvider<AppointmentCubit>(
   child: BookappointmentScreen(),
 ));
 case Routes.paymentScreen:
-return MaterialPageRoute(builder:  (_)=>PamentOptionScreen());
+return MaterialPageRoute(builder: (_)=> BlocProvider<AppointmentCubit>(
+ create: (context) => AppointmentCubit(getIt()),
+   //value: _.read<AppointmentCubit>(),
+   child: PamentOptionScreen(),
+));
+  
+ 
 case Routes.paymentSummaryScreen:
-return MaterialPageRoute(builder:  (_)=>BookApointmentSummary());
+ /*
+  return MaterialPageRoute(builder: (context) => BlocProvider<AppointmentCubit>.value(
+    value: context.read<AppointmentCubit>(), // Use the same cubit instance
+    child: BookApointmentSummary(),
+  ));
+  */
+
+return MaterialPageRoute(builder: (_)=>  BlocProvider<AppointmentCubit>(
+  create: (context) => AppointmentCubit(getIt())..emitAppointmentStates(),
+   child: BookApointmentSummary(),
+));
+
       default:
         return MaterialPageRoute(
           builder: (_) => Scaffold(

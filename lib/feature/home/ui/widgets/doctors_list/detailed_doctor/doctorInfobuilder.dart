@@ -129,7 +129,7 @@ class _DoctorinfobuilderState extends State<Doctorinfobuilder>
                 textStyle: TextStyles.font16WhiteSemiBold,
                 onPressed: () {
                  // Navigator.push(context, MaterialPageRoute(builder:  (context)=>AppointmentBlock(id: widget.id,)));
-                  context.pushNamed(Routes.appointmentScreen);
+                  context.pushNamed(Routes.appointmentScreen );
                 })
           ]),
         ),
