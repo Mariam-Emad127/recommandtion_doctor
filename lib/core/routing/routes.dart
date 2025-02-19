@@ -10,7 +10,7 @@ class Routes{
  static const String searchdoctorScreen="/searchDoctor_screen";
  static const String appointmentScreen="/Appointment_screen";
   static const String paymentScreen="/payment_option_screen";
-  static const String paymentSummaryScreen="/Book Appointment _Summary";
+ static const String paymentSummaryScreen="/Book Appointment _Summary";
 
   //lib\feature\Book Appointment\ui\Book Appointment _Summary.dart
   }

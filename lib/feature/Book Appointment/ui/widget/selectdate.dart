@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-
 import '../../../../core/helper/shared_pref_helper.dart';
 
 class Selectdate extends StatefulWidget {
@@ -53,9 +52,6 @@ class _SelectdateState extends State<Selectdate> {
                         Center(
                           child: Text(
                               futureD[index].substring(8),
-                              //.length > 5
-                                  //? futureD[index].substring(0, 3)
-                                  //: futureD[index],
                               style: TextStyle(
                                   color:
                                       isSelected ? Colors.white : Colors.grey,
@@ -98,9 +94,6 @@ class _SelectdateState extends State<Selectdate> {
     for (int i = 0; i < 100; i++) {
       DateTime futureDate = now.add(Duration(days: i));
       String formattedDate =  DateFormat("EEEE-yyyy-MM-dd").format(futureDate);
-      //   "${futureDate.day}-${futureDate.month} ";
-      // "${futureDate.day} ";
-      String sharedformattedDate = "${futureDate.day},${futureDate.month} ";
       daysList.add(formattedDate);
     }
 
@@ -110,11 +103,9 @@ class _SelectdateState extends State<Selectdate> {
   List<String> getNextDays() {
     List<String> daysList = [];
     DateTime now = DateTime.now();
-
     for (int i = 0; i < 100; i++) {
       DateTime futureDate = now.add(Duration(days: i));
       String formattedDays = "${DateFormat("yyyy-MM-dd").format(futureDate)}";
-      //-yyyy-MM-dd
       daysList.add(formattedDays);
     }
 

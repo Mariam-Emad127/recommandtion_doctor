@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:recommandtion_doctor/core/%20theming/colors.dart';
 import 'package:recommandtion_doctor/core/helper/extensions.dart';
+import 'package:recommandtion_doctor/core/helper/shared_pref_helper.dart';
+import 'package:recommandtion_doctor/feature/Book%20Appointment/controller/cubit/appointment_cubit.dart';
 import 'package:recommandtion_doctor/feature/Book%20Appointment/ui/widget/list_step_circle.dart';
 import '../../../core/ theming/styles.dart';
 import '../../../core/routing/routes.dart';
@@ -16,7 +19,21 @@ class PamentOptionScreen extends StatefulWidget {
 
 class _PamentOptionScreenState extends State<PamentOptionScreen> {
    String selectedPayment = "Credit Card";
+   int id=1;
+   String date_time="mmmmm";
 
+_loadedvalue()async{
+date_time=await SharedPrefHelper.getString( "date&time");
+id=await SharedPrefHelper.getInt( "id");
+
+ 
+}
+@override
+  void initState() {
+    _loadedvalue();
+    // TODO: implement initState
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -91,7 +108,14 @@ class _PamentOptionScreenState extends State<PamentOptionScreen> {
                     AppTextButton(
                       buttonText: 'Continue',
                       textStyle: TextStyles.font16WhiteSemiBold,
-                      onPressed: () {context.pushNamed(Routes.paymentSummaryScreen  );},
+                      onPressed: () {
+ 
+ 
+                        context.pushNamed (Routes.paymentSummaryScreen  );
+                        
+                      //context.read<AppointmentCubit>()..emitAppointmentStates(id,date_time);
+            
+                        },
                     )
                         ],
                       ),
@@ -100,6 +124,8 @@ class _PamentOptionScreenState extends State<PamentOptionScreen> {
     );
   }
 
+  
+  
   Widget buildRadioTile(String title) {
     return RadioListTile(
       title: Text(title),

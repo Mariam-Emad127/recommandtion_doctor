@@ -19,7 +19,8 @@ mixin _$AppointmentState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(DoctorInfoCard? doctorInfoCard) success,
+    required TResult Function(DoctorInfoCard? doctorInfoCard, String date)
+        success,
     required TResult Function() failure,
     required TResult Function() loading,
   }) =>
@@ -27,7 +28,7 @@ mixin _$AppointmentState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(DoctorInfoCard? doctorInfoCard)? success,
+    TResult? Function(DoctorInfoCard? doctorInfoCard, String date)? success,
     TResult? Function()? failure,
     TResult? Function()? loading,
   }) =>
@@ -35,7 +36,7 @@ mixin _$AppointmentState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(DoctorInfoCard? doctorInfoCard)? success,
+    TResult Function(DoctorInfoCard? doctorInfoCard, String date)? success,
     TResult Function()? failure,
     TResult Function()? loading,
     required TResult orElse(),
@@ -131,7 +132,8 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(DoctorInfoCard? doctorInfoCard) success,
+    required TResult Function(DoctorInfoCard? doctorInfoCard, String date)
+        success,
     required TResult Function() failure,
     required TResult Function() loading,
   }) {
@@ -142,7 +144,7 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(DoctorInfoCard? doctorInfoCard)? success,
+    TResult? Function(DoctorInfoCard? doctorInfoCard, String date)? success,
     TResult? Function()? failure,
     TResult? Function()? loading,
   }) {
@@ -153,7 +155,7 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(DoctorInfoCard? doctorInfoCard)? success,
+    TResult Function(DoctorInfoCard? doctorInfoCard, String date)? success,
     TResult Function()? failure,
     TResult Function()? loading,
     required TResult orElse(),
@@ -212,7 +214,7 @@ abstract class _$$SuccessImplCopyWith<$Res> {
           _$SuccessImpl value, $Res Function(_$SuccessImpl) then) =
       __$$SuccessImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({DoctorInfoCard? doctorInfoCard});
+  $Res call({DoctorInfoCard? doctorInfoCard, String date});
 }
 
 /// @nodoc
@@ -229,12 +231,17 @@ class __$$SuccessImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? doctorInfoCard = freezed,
+    Object? date = null,
   }) {
     return _then(_$SuccessImpl(
       freezed == doctorInfoCard
           ? _value.doctorInfoCard
           : doctorInfoCard // ignore: cast_nullable_to_non_nullable
               as DoctorInfoCard?,
+      null == date
+          ? _value.date
+          : date // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -242,14 +249,16 @@ class __$$SuccessImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$SuccessImpl implements Success {
-  const _$SuccessImpl(this.doctorInfoCard);
+  const _$SuccessImpl(this.doctorInfoCard, this.date);
 
   @override
   final DoctorInfoCard? doctorInfoCard;
+  @override
+  final String date;
 
   @override
   String toString() {
-    return 'AppointmentState.success(doctorInfoCard: $doctorInfoCard)';
+    return 'AppointmentState.success(doctorInfoCard: $doctorInfoCard, date: $date)';
   }
 
   @override
@@ -258,11 +267,12 @@ class _$SuccessImpl implements Success {
         (other.runtimeType == runtimeType &&
             other is _$SuccessImpl &&
             (identical(other.doctorInfoCard, doctorInfoCard) ||
-                other.doctorInfoCard == doctorInfoCard));
+                other.doctorInfoCard == doctorInfoCard) &&
+            (identical(other.date, date) || other.date == date));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, doctorInfoCard);
+  int get hashCode => Object.hash(runtimeType, doctorInfoCard, date);
 
   /// Create a copy of AppointmentState
   /// with the given fields replaced by the non-null parameter values.
@@ -276,35 +286,36 @@ class _$SuccessImpl implements Success {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(DoctorInfoCard? doctorInfoCard) success,
+    required TResult Function(DoctorInfoCard? doctorInfoCard, String date)
+        success,
     required TResult Function() failure,
     required TResult Function() loading,
   }) {
-    return success(doctorInfoCard);
+    return success(doctorInfoCard, date);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(DoctorInfoCard? doctorInfoCard)? success,
+    TResult? Function(DoctorInfoCard? doctorInfoCard, String date)? success,
     TResult? Function()? failure,
     TResult? Function()? loading,
   }) {
-    return success?.call(doctorInfoCard);
+    return success?.call(doctorInfoCard, date);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(DoctorInfoCard? doctorInfoCard)? success,
+    TResult Function(DoctorInfoCard? doctorInfoCard, String date)? success,
     TResult Function()? failure,
     TResult Function()? loading,
     required TResult orElse(),
   }) {
     if (success != null) {
-      return success(doctorInfoCard);
+      return success(doctorInfoCard, date);
     }
     return orElse();
   }
@@ -348,9 +359,11 @@ class _$SuccessImpl implements Success {
 }
 
 abstract class Success implements AppointmentState {
-  const factory Success(final DoctorInfoCard? doctorInfoCard) = _$SuccessImpl;
+  const factory Success(
+      final DoctorInfoCard? doctorInfoCard, final String date) = _$SuccessImpl;
 
   DoctorInfoCard? get doctorInfoCard;
+  String get date;
 
   /// Create a copy of AppointmentState
   /// with the given fields replaced by the non-null parameter values.
@@ -401,7 +414,8 @@ class _$FailureImpl implements Failure {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(DoctorInfoCard? doctorInfoCard) success,
+    required TResult Function(DoctorInfoCard? doctorInfoCard, String date)
+        success,
     required TResult Function() failure,
     required TResult Function() loading,
   }) {
@@ -412,7 +426,7 @@ class _$FailureImpl implements Failure {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(DoctorInfoCard? doctorInfoCard)? success,
+    TResult? Function(DoctorInfoCard? doctorInfoCard, String date)? success,
     TResult? Function()? failure,
     TResult? Function()? loading,
   }) {
@@ -423,7 +437,7 @@ class _$FailureImpl implements Failure {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(DoctorInfoCard? doctorInfoCard)? success,
+    TResult Function(DoctorInfoCard? doctorInfoCard, String date)? success,
     TResult Function()? failure,
     TResult Function()? loading,
     required TResult orElse(),
@@ -518,7 +532,8 @@ class _$LoadingImpl implements Loading {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(DoctorInfoCard? doctorInfoCard) success,
+    required TResult Function(DoctorInfoCard? doctorInfoCard, String date)
+        success,
     required TResult Function() failure,
     required TResult Function() loading,
   }) {
@@ -529,7 +544,7 @@ class _$LoadingImpl implements Loading {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(DoctorInfoCard? doctorInfoCard)? success,
+    TResult? Function(DoctorInfoCard? doctorInfoCard, String date)? success,
     TResult? Function()? failure,
     TResult? Function()? loading,
   }) {
@@ -540,7 +555,7 @@ class _$LoadingImpl implements Loading {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(DoctorInfoCard? doctorInfoCard)? success,
+    TResult Function(DoctorInfoCard? doctorInfoCard, String date)? success,
     TResult Function()? failure,
     TResult Function()? loading,
     required TResult orElse(),

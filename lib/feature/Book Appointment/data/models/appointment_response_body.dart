@@ -21,6 +21,7 @@ class DoctorInfoCard {
   String? appointmentEndTime;
   String? status;
   String? notes;
+  @JsonKey(name: "appointment_price")
   int? appointmentPrice;
 
   DoctorInfoCard(
