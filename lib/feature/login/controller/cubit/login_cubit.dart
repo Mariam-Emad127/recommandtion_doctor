@@ -29,6 +29,7 @@ void emitLoginStates() async {
   
        final username =  loginResponse.loginUserData?.userName ?? "Unknown User";
  
+//String email=await   loginResponse.loginUserData?.email ??"";  
      
 await SharedPrefHelper.setData("username",username);
  

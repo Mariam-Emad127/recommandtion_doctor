@@ -21,16 +21,17 @@ if (isClosed) return;
 response.when(success: (profilegetData)async{
 
  
-String name=profilegetData.userData?.first.name??"";  
-String email=profilegetData.userData?.first.email ??"";  
-       final prefs1 = await SharedPreferences.getInstance();
-           prefs1.setString("usernam", name);
-           prefs1.setString("email", email);
+//String name=await profilegetData.userData?.first.name??"";  
+//String email=await profilegetData.userData?.first.email ??"";  
+  //     final prefs1 = await SharedPreferences.getInstance();
+  //       await  prefs1.setString("usernam", name);
+    //     await  prefs1.setString("email", email);
 
              if (!isClosed) {
-  super.emit(GetUserprofileDataState.success(profilegetData   ));
+  emit(GetUserprofileDataState.success(profilegetData   ));
              }
 }, failure:(e) {
+  emit(GetUserprofileDataState.error(  ));
    if (!isClosed) {
   ApiErrorModelHandler.handle(e.message);
    }
