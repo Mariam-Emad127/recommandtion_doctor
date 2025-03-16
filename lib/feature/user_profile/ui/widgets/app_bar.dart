@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:recommandtion_doctor/core/%20theming/styles.dart';
 import 'package:recommandtion_doctor/core/helper/extensions.dart';
+import 'package:recommandtion_doctor/core/routing/routes.dart';
+import 'package:recommandtion_doctor/feature/user_profile/controller/cubit/get_userprofile_data_cubit.dart';
 
 class AppBarScreen extends StatelessWidget {
   const AppBarScreen({super.key});
@@ -25,7 +28,11 @@ class AppBarScreen extends StatelessWidget {
                 "Profile",
                 style: TextStyles.font25WhiteMedium,
               ),
-              Icon(Icons.settings, color: Colors.white),
+              IconButton(icon:Icon(  Icons.settings , color: Colors.white ,),onPressed: (){
+                  //context.read<GetUserprofileDataCubit>().emitGetUserProfile();
+context.pushNamed(Routes.settingSreen);
+
+              },),
             ],
           ),
       

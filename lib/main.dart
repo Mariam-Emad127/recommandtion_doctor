@@ -22,16 +22,15 @@ void main() async{
    }catch(e){print( "kkkkkkkkkkkkkkkkkkkkkkkk@$e");}  
 */
 }
- //Future<void>
-  checkIfLoggedInUser()   {
+ Future<void> checkIfLoggedInUser() async  {
   // للتحقق إذا كانت الدالة تُستدعى
- //String ?userToken=await  SharedPrefHelper.getString(SharedPrefKeys.userToken);
+ String ?userToken=await  SharedPrefHelper.getString(SharedPrefKeys.userToken);
 String s="nnnnnnnnnnnn";
   print( "hhhhhhhhhhhhhhuserToken$s");
 
 
-//if( userToken=="" ){isLoggedInUser = false;}
-//else {isLoggedInUser =true;}
+if( userToken=="" ){isLoggedInUser = false;}
+else {isLoggedInUser =true;}
  }
 
 

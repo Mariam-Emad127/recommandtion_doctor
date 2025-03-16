@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:recommandtion_doctor/core/%20theming/colors.dart';
 import 'package:recommandtion_doctor/core/helper/extensions.dart';
 import 'package:recommandtion_doctor/core/routing/routes.dart';
+import 'package:recommandtion_doctor/feature/user_profile/controller/cubit/get_userprofile_data_cubit.dart';
 import 'package:recommandtion_doctor/feature/user_profile/ui/widgets/app_bar.dart';
 import 'package:recommandtion_doctor/feature/user_profile/ui/widgets/appointment_button.dart';
 import 'package:recommandtion_doctor/feature/user_profile/ui/widgets/cards_info.dart';
 import 'package:recommandtion_doctor/feature/user_profile/ui/widgets/name_emailText.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-
+ 
 class UserProfilescreen extends StatefulWidget {
   const UserProfilescreen({super.key});
 
@@ -20,19 +21,24 @@ class _UserProfilescreenState extends State<UserProfilescreen> {
   String userName = "Loading...";
   String email = "Loading...";
   @override
-  void initState() {
-    loaddata();
+  void initState()   {
     super.initState();
-  }
-
-  Future<void> loaddata() async {
-    final prefs1 = await SharedPreferences.getInstance();
     setState(() {
-      userName = prefs1.getString("usernam") ?? "Unknown User";
-      email = prefs1.getString("email") ?? "Unknown User";
+     context.read<GetUserprofileDataCubit>().emitGetUserProfile();
+      
     });
   }
-
+/*
+  Future<void> loaddata() async {
+    final prefs1 = await SharedPreferences.getInstance();
+     userName = await  prefs1.getString("username") ?? "Unknown User";
+      email = await  prefs1.getString("email") ?? "Unknown User";
+    setState(()  {
+ userName;
+ email;
+    });
+  }
+*/
   @override
   Widget build(BuildContext context) {
  
@@ -78,8 +84,8 @@ class _UserProfilescreenState extends State<UserProfilescreen> {
                 Padding(
                   padding: EdgeInsets.only(left: 40),
                   child: NameEmailtext(
-                    userName: userName,
-                    email: email,
+                 //   userName: userName,
+                   // email: email,
                   ),
                 ),
                 Padding(

@@ -17,9 +17,12 @@ class EditYourprofile extends StatefulWidget {
 class _EditYourprofileState extends State<EditYourprofile> {
  
   @override
-  void initState() {
+  void initState()   {
     super.initState();
-    context.read<GetUserprofileDataCubit>().emitGetUserProfile();
+    setState(() {
+     context.read<GetUserprofileDataCubit>().emitGetUserProfile();
+      
+    });
   }
    
   @override
@@ -109,8 +112,8 @@ class _EditYourprofileState extends State<EditYourprofile> {
                     ),
                   );
                 },
-                error: (error) {
-                  return Text(error.toString());
+                error: ( ) {
+                  return Text( "error");
                 },
                 orElse: () {
                   return Text("nnnnnnnnnnnnnnnnn");

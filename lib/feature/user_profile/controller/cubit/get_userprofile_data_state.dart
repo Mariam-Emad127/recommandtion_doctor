@@ -6,5 +6,5 @@ class GetUserprofileDataState with _$GetUserprofileDataState {
 
   const factory GetUserprofileDataState.loading() = Loading;
   const factory GetUserprofileDataState.success(ProfileResponseModel  profileResponseModel ) = Success;
-  const factory GetUserprofileDataState.error({required String error}) = Error;
+  const factory GetUserprofileDataState.error( ) = Error;
 }
